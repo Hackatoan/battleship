@@ -42,7 +42,31 @@ let state = {
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
+  if (id === 'screen-menu') history.replaceState(null, '', '/');
 }
+
+// ── URL room sharing ──────────────────────────────────────────────────────────
+function setRoomInUrl(code) {
+  history.replaceState(null, '', `/?room=${code}`);
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  const btn = event.target;
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.textContent = 'Copy Link', 1500);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const room = params.get('room');
+  if (room) {
+    showScreen('screen-mp-menu');
+    document.getElementById('room-input').value = room.toUpperCase();
+    document.getElementById('mp-status').textContent = `Joining room ${room.toUpperCase()}…`;
+    socket.emit('join_room', { code: room.toUpperCase() });
+  }
+});
 
 // ── Menu actions ──────────────────────────────────────────────────────────────
 function startSinglePlayer() {
@@ -68,6 +92,9 @@ function joinRoom() {
 
 function copyCode() {
   navigator.clipboard.writeText(state.roomCode);
+  const btn = event.target;
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.textContent = 'Copy Code', 1500);
 }
 
 // ── Socket events ─────────────────────────────────────────────────────────────
@@ -77,6 +104,7 @@ socket.on('room_created', ({ code }) => {
   document.getElementById('room-code-text').textContent = code;
   document.getElementById('room-code-display').classList.remove('hidden');
   document.getElementById('mp-status').textContent = 'Waiting for opponent to join…';
+  setRoomInUrl(code);
 });
 
 socket.on('join_error', (msg) => {
