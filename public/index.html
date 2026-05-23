@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battleship</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Menu -->
+  <div id="screen-menu" class="screen active">
+    <div class="logo">
+      <div class="logo-icon">⚓</div>
+      <h1>BATTLESHIP</h1>
+    </div>
+    <div class="menu-buttons">
+      <button class="btn btn-primary" onclick="startSinglePlayer()">VS Computer</button>
+      <button class="btn btn-secondary" onclick="showScreen('screen-mp-menu')">Multiplayer</button>
+    </div>
+  </div>
+
+  <!-- Multiplayer Menu -->
+  <div id="screen-mp-menu" class="screen">
+    <h2>Multiplayer</h2>
+    <div class="menu-buttons">
+      <button class="btn btn-primary" onclick="createRoom()">Create Room</button>
+      <div class="join-row">
+        <input id="room-input" type="text" placeholder="Room code" maxlength="6">
+        <button class="btn btn-secondary" onclick="joinRoom()">Join</button>
+      </div>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Back</button>
+    </div>
+    <div id="mp-status" class="status-msg"></div>
+    <div id="room-code-display" class="room-code hidden">
+      Room: <span id="room-code-text"></span>
+      <button class="btn-copy" onclick="copyCode()">Copy</button>
+    </div>
+  </div>
+
+  <!-- Difficulty (single player) -->
+  <div id="screen-difficulty" class="screen">
+    <h2>Difficulty</h2>
+    <div class="menu-buttons">
+      <button class="btn btn-primary" onclick="setDifficulty('easy')">Easy</button>
+      <button class="btn btn-secondary" onclick="setDifficulty('medium')">Medium</button>
+      <button class="btn btn-danger" onclick="setDifficulty('hard')">Hard</button>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Back</button>
+    </div>
+    <p class="hint">Easy: random shots &nbsp;|&nbsp; Medium: hunt & target &nbsp;|&nbsp; Hard: probability-based</p>
+  </div>
+
+  <!-- Ship Placement -->
+  <div id="screen-placement" class="screen">
+    <h2>Place Your Ships</h2>
+    <div class="placement-layout">
+      <div class="ship-list" id="ship-list"></div>
+      <div class="placement-area">
+        <div class="board-wrap">
+          <div class="board-labels">
+            <div class="corner"></div>
+            <div class="col-labels" id="col-labels-place"></div>
+          </div>
+          <div class="board-row-wrap">
+            <div class="row-labels" id="row-labels-place"></div>
+            <div class="board" id="place-board"></div>
+          </div>
+        </div>
+        <div class="placement-controls">
+          <button class="btn btn-secondary" onclick="rotateShip()">Rotate (R)</button>
+          <button class="btn btn-ghost" onclick="randomPlacement()">Random</button>
+          <button class="btn btn-primary" id="ready-btn" onclick="confirmPlacement()" disabled>Ready!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Waiting -->
+  <div id="screen-waiting" class="screen">
+    <div class="waiting-content">
+      <div class="spinner"></div>
+      <p>Waiting for opponent...</p>
+    </div>
+  </div>
+
+  <!-- Game -->
+  <div id="screen-game" class="screen">
+    <div class="game-header">
+      <div class="player-info" id="my-info">
+        <span class="player-label">YOU</span>
+        <div class="ship-status" id="my-ships"></div>
+      </div>
+      <div class="turn-indicator" id="turn-indicator">Your Turn</div>
+      <div class="player-info" id="opp-info">
+        <span class="player-label">OPPONENT</span>
+        <div class="ship-status" id="opp-ships"></div>
+      </div>
+    </div>
+    <div class="game-boards">
+      <div class="board-section">
+        <h3>Your Fleet</h3>
+        <div class="board-wrap">
+          <div class="board-labels">
+            <div class="corner"></div>
+            <div class="col-labels" id="col-labels-my"></div>
+          </div>
+          <div class="board-row-wrap">
+            <div class="row-labels" id="row-labels-my"></div>
+            <div class="board" id="my-board"></div>
+          </div>
+        </div>
+      </div>
+      <div class="board-section">
+        <h3>Enemy Waters</h3>
+        <div class="board-wrap">
+          <div class="board-labels">
+            <div class="corner"></div>
+            <div class="col-labels" id="col-labels-opp"></div>
+          </div>
+          <div class="board-row-wrap">
+            <div class="row-labels" id="row-labels-opp"></div>
+            <div class="board" id="opp-board"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="game-log" id="game-log"></div>
+  </div>
+
+  <!-- Result -->
+  <div id="screen-result" class="screen">
+    <div class="result-content">
+      <div class="result-icon" id="result-icon"></div>
+      <h2 id="result-title"></h2>
+      <p id="result-sub"></p>
+      <button class="btn btn-primary" onclick="playAgain()">Play Again</button>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Main Menu</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

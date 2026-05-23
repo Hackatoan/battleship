@@ -1,0 +1,11 @@
+services:
+  battleship:
+    image: ghcr.io/hackatoan/battleship:latest
+    container_name: battleship
+    restart: unless-stopped
+    ports:
+      - "3025:3025"
+    environment:
+      - PORT=3025
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
