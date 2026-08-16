@@ -55,6 +55,13 @@
       <button class="btn btn-primary" onclick="startSinglePlayer()">VS Computer</button>
       <button class="btn btn-secondary" onclick="showScreen('screen-mp-menu')">Multiplayer</button>
     </div>
+    <div class="leaderboard-box">
+      <h3>🏆 Leaderboard</h3>
+      <table class="leaderboard">
+        <thead><tr><th>#</th><th>Player</th><th>W</th><th>L</th><th>D</th></tr></thead>
+        <tbody id="lb-body"><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </div>
   </div>
 
   <section style="max-width:640px;margin:0 auto;padding:0 20px 20px;text-align:left;font-size:.85rem;line-height:1.6;color:#8ba3c0;">
@@ -66,6 +73,7 @@
   <div id="screen-mp-menu" class="screen">
     <h2>Multiplayer</h2>
     <div class="menu-buttons">
+      <input id="name-input" type="text" placeholder="Your nickname" maxlength="24" style="text-align:center;">
       <button class="btn btn-primary" onclick="createRoom()">Create Room</button>
       <div class="join-row">
         <input id="room-input" type="text" placeholder="Room code" maxlength="6">
@@ -194,6 +202,7 @@
   </footer>
 
   <script src="/socket.io/socket.io.js"></script>
+  <script src="name.js"></script>
   <script src="game.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->
 <script>

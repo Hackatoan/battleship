@@ -58,15 +58,44 @@ function copyLink() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  // Prefill nickname field from storage.
+  const nameInput = document.getElementById('name-input');
+  if (nameInput) nameInput.value = window.PlayerName.get();
+
+  loadLeaderboard();
+
   const params = new URLSearchParams(window.location.search);
   const room = params.get('room');
   if (room) {
     showScreen('screen-mp-menu');
     document.getElementById('room-input').value = room.toUpperCase();
     document.getElementById('mp-status').textContent = `Joining room ${room.toUpperCase()}…`;
-    socket.emit('join_room', { code: room.toUpperCase() });
+    socket.emit('join_room', { code: room.toUpperCase(), name: currentName() });
   }
 });
+
+// Read the nickname field (or storage), persist it, and return it.
+function currentName() {
+  const el = document.getElementById('name-input');
+  const n = window.PlayerName.set(el ? el.value : window.PlayerName.get());
+  return n;
+}
+
+async function loadLeaderboard() {
+  const body = document.getElementById('lb-body');
+  if (!body) return;
+  try {
+    const res = await fetch('/api/leaderboard');
+    const data = await res.json();
+    const players = (data && data.players) || [];
+    if (!players.length) { body.innerHTML = '<tr><td colspan="5">No games played yet — be the first!</td></tr>'; return; }
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const me = window.PlayerName.get();
+    body.innerHTML = players.map((p, i) =>
+      `<tr class="${me && p.player === me ? 'lb-me' : ''}"><td>${i + 1}</td><td>${esc(p.player)}</td><td>${p.wins}</td><td>${p.losses}</td><td>${p.draws}</td></tr>`
+    ).join('');
+  } catch { body.innerHTML = '<tr><td colspan="5">Leaderboard unavailable.</td></tr>'; }
+}
 
 // ── Menu actions ──────────────────────────────────────────────────────────────
 function startSinglePlayer() {
@@ -81,13 +110,13 @@ function setDifficulty(d) {
 }
 
 function createRoom() {
-  socket.emit('create_room');
+  socket.emit('create_room', { name: currentName() });
 }
 
 function joinRoom() {
   const code = document.getElementById('room-input').value.trim().toUpperCase();
   if (!code) return;
-  socket.emit('join_room', { code });
+  socket.emit('join_room', { code, name: currentName() });
 }
 
 function copyCode() {

@@ -2,12 +2,19 @@ const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
 const path = require('path');
+const db = require('./db');
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Leaderboard (nickname-based).
+app.get('/api/leaderboard', async (_req, res) => {
+  const players = await db.getLeaderboard(20);
+  res.json({ game: db.GAME, players });
+});
 
 const rooms = {};
 
@@ -30,18 +37,20 @@ function checkWin(board) {
 }
 
 io.on('connection', (socket) => {
-  socket.on('create_room', () => {
+  socket.on('create_room', (payload = {}) => {
     const code = makeCode();
-    rooms[code] = { players: [socket.id], boards: {}, hits: {}, ready: new Set(), turn: null };
+    rooms[code] = { players: [socket.id], names: {}, boards: {}, hits: {}, ready: new Set(), turn: null };
+    rooms[code].names[socket.id] = db.cleanName(payload && payload.name);
     socket.join(code);
     socket.emit('room_created', { code });
   });
 
-  socket.on('join_room', ({ code }) => {
+  socket.on('join_room', ({ code, name } = {}) => {
     const room = rooms[code.toUpperCase()];
     if (!room) return socket.emit('join_error', 'Room not found');
     if (room.players.length >= 2) return socket.emit('join_error', 'Room is full');
     room.players.push(socket.id);
+    room.names[socket.id] = db.cleanName(name);
     socket.join(code.toUpperCase());
     socket.emit('room_joined', { code: code.toUpperCase() });
     io.to(code.toUpperCase()).emit('opponent_joined');
@@ -88,7 +97,11 @@ io.on('connection', (socket) => {
       row, col, hit, sunkShip, won, nextTurn
     });
 
-    if (won) delete rooms[code];
+    if (won) {
+      const winnerName = room.names[socket.id];
+      db.recordMatch(room.names[socket.id], room.names[oppId], winnerName);
+      delete rooms[code];
+    }
   });
 
   socket.on('disconnect', () => {

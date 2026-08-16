@@ -7,5 +7,14 @@ services:
       - "3025:3025"
     environment:
       - PORT=3025
+      - GAME_ID=battleship
+      - DATABASE_URL=postgresql://games:g4m3sDB_2024xQ!@games-db:5432/games
+    networks:
+      - default
+      - games-net
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
+
+networks:
+  games-net:
+    external: true
