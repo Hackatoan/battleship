@@ -194,3 +194,29 @@ h3 { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: upp
   .logo h1 { font-size: 36px; letter-spacing: 8px; }
   .game-header { flex-direction: column; gap: 10px; text-align: center; }
 }
+
+/* ── Leaderboard ─────────────────────────────────────────── */
+.leaderboard-box {
+  max-width: 380px;
+  margin: 28px auto 0;
+  background: var(--surface2, #0d2040);
+  border: 1px solid #1e4070;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.leaderboard-box h3 {
+  color: var(--accent);
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+table.leaderboard { width: 100%; border-collapse: collapse; font-size: 14px; color: #8ba3c0; }
+table.leaderboard th { text-align: left; color: #6080a0; font-weight: 600; padding: 3px 6px; }
+table.leaderboard td { padding: 3px 6px; }
+table.leaderboard th:nth-child(n+3), table.leaderboard td:nth-child(n+3) { text-align: right; }
+table.leaderboard tr.lb-me { color: var(--accent); font-weight: 700; }
+#name-input {
+  padding: 12px 16px; border-radius: 8px; border: 1px solid #1e4070;
+  background: #0d2040; color: #d0e8ff; font-size: 15px; width: 100%;
+}
