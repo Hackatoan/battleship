@@ -21,10 +21,15 @@ body {
   color: var(--text);
   font-family: 'Segoe UI', system-ui, sans-serif;
   min-height: 100vh;
+  background-image: radial-gradient(ellipse at 30% 20%, #0d2040 0%, var(--bg) 60%);
+}
+
+/* Centered play area — preserves the original full-viewport, vertically-centered game view */
+.game-stage {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: radial-gradient(ellipse at 30% 20%, #0d2040 0%, var(--bg) 60%);
 }
 
 .screen { display: none; width: 100%; max-width: 1000px; padding: 20px; animation: fadeIn 0.3s ease; }
@@ -219,4 +224,52 @@ table.leaderboard tr.lb-me { color: var(--accent); font-weight: 700; }
 #name-input {
   padding: 12px 16px; border-radius: 8px; border: 1px solid #1e4070;
   background: #0d2040; color: #d0e8ff; font-size: 15px; width: 100%;
+}
+
+/* ── SEO / informational content (below the game) ── */
+.seo-content {
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(15,32,64,0.35), rgba(10,22,40,0.0));
+  padding: 56px 20px 90px;
+}
+.seo-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: var(--text);
+}
+.seo-inner h2 {
+  font-size: 24px;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  text-align: left;
+}
+.seo-inner .seo-h {
+  font-size: 15px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 32px 0 12px;
+  text-align: left;
+}
+.seo-inner p { color: var(--text); margin-bottom: 14px; }
+.seo-inner strong { color: #eaf6ff; }
+.seo-list { margin: 0 0 8px 1.2em; padding: 0; }
+.seo-list li { margin-bottom: 10px; }
+.seo-faq h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #eaf6ff;
+  margin: 18px 0 4px;
+  letter-spacing: 0.3px;
+}
+.seo-faq p { color: var(--text-dim); margin-bottom: 6px; }
+.seo-cta { margin-top: 32px; }
+.seo-cta a { color: var(--accent); font-weight: 700; text-decoration: none; }
+.seo-cta a:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .seo-content { padding: 40px 18px 90px; }
+  .seo-inner h2 { font-size: 20px; }
 }
