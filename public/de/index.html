@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schiffe versenken Online — Multiplayer Browser-Spiel | Hackatoa</title>
-  <meta name="description" content="Spiele Schiffe versenken online gegen einen Freund. Klassisches Marine-Strategiespiel im Browser — platziere deine Flotte und versenke die Schiffe deines Gegners. Kostenlos & sofort spielbar." />
+  <title>Schiffe versenken online — Multiplayer Browsergame | Hackatoa</title>
+  <meta name="description" content="Spiele Schiffe versenken online gegen Freunde. Klassisches Marine-Strategiespiel im Browser — platziere deine Flotte und versenke die Schiffe deines Gegners. Kostenlos & sofort spielbar." />
   <meta name="author" content="Preston Harris" />
   <meta name="keywords" content="battleship, online battleship, multiplayer battleship, browser game, naval strategy, Hackatoa" />
-  <meta property="og:title" content="Schiffe versenken Online — Multiplayer Browser-Spiel" />
-  <meta property="og:description" content="Spiele Schiffe versenken online gegen einen Freund. Klassisches Marine-Strategiespiel im Browser — platziere deine Flotte und versenke die Schiffe deines Gegners. Kostenlos & sofort spielbar." />
+  <meta property="og:title" content="Schiffe versenken online — Multiplayer Browsergame" />
+  <meta property="og:description" content="Spiele Schiffe versenken online gegen Freunde. Klassisches Marine-Strategiespiel im Browser — platziere deine Flotte und versenke die Schiffe deines Gegners. Kostenlos & sofort spielbar." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://battleship.hackatoa.com/" />
   <meta property="og:image" content="https://battleship.hackatoa.com/og.png" />
@@ -17,8 +17,8 @@
   <meta property="og:image:alt" content="Battleship Online — naval strategy browser game" />
   <meta property="og:site_name" content="Hackatoa" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Schiffe versenken Online — Multiplayer Browser-Spiel" />
-  <meta name="twitter:description" content="Spiele Schiffe versenken online gegen einen Freund. Klassisches Marine-Strategiespiel im Browser — platziere deine Flotte und versenke die Schiffe deines Gegners. Kostenlos & sofort spielbar." />
+  <meta name="twitter:title" content="Schiffe versenken online — Multiplayer Browsergame" />
+  <meta name="twitter:description" content="Spiele Schiffe versenken online gegen Freunde. Klassisches Marine-Strategiespiel im Browser — platziere deine Flotte und versenke die Schiffe deines Gegners. Kostenlos & sofort spielbar." />
   <meta name="twitter:image" content="https://battleship.hackatoa.com/og.png" />
   <meta name="twitter:site" content="@jhackatoa" />
   <link rel="canonical" href="https://battleship.hackatoa.com/de/" />  <meta name="application-name" content="Hackatoa Games" />
@@ -46,7 +46,7 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Ist Schiffe versenken Online kostenlos?",
+      "name": "Ist Schiffe versenken online kostenlos?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ja. Es ist komplett kostenlos, ohne Anmeldung, ohne Werbung und ohne Download — einfach die Seite öffnen und loslegen."
@@ -54,10 +54,10 @@
     },
     {
       "@type": "Question",
-      "name": "Kann ich Schiffe versenken online mit einem Freund spielen?",
+      "name": "Kann ich Schiffe versenken online mit Freunden spielen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Wähle Mehrspieler, erstelle einen Raum und teile den Raum-Code oder Link. Ihr spielt dann ein Live-Duell in Echtzeit gegeneinander."
+        "text": "Ja. Wähle Mehrspieler, erstelle einen Raum und teile den Code oder Link. Ihr spielt ein Live-Duell in Echtzeit gegeneinander."
       }
     },
     {
@@ -65,7 +65,7 @@
       "name": "Muss ich etwas herunterladen oder installieren?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. Schiffe versenken Online läuft vollständig im Webbrowser, es ist also kein Download auf Desktop oder Handy nötig."
+        "text": "Nein. Schiffe versenken online läuft vollständig im Webbrowser, es ist kein Download auf Desktop oder Handy nötig."
       }
     },
     {
@@ -73,15 +73,15 @@
       "name": "Kann ich Schiffe versenken gegen den Computer spielen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Im Einzelspieler-Modus kannst du gegen eine KI in den Stufen Einfach, Mittel und Schwer antreten."
+        "text": "Ja. Im Einzelspielermodus kannst du gegen eine KI in den Stufen Einfach, Mittel und Schwer antreten."
       }
     },
     {
       "@type": "Question",
-      "name": "Funktioniert Schiffe versenken Online auf dem Handy?",
+      "name": "Funktioniert Schiffe versenken online auf dem Handy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Das Spiel ist so optimiert, dass es auf Handys, Tablets und Desktop-Browsern gleichermaßen funktioniert."
+        "text": "Ja. Das Spiel ist für Smartphones, Tablets und Desktop-Browser optimiert."
       }
     }
   ]
@@ -123,7 +123,7 @@
       <h1>SCHIFFE VERSENKEN</h1>
     </div>
     <div class="menu-buttons">
-      <button class="btn btn-primary" onclick="startSinglePlayer()">VS Computer</button>
+      <button class="btn btn-primary" onclick="startSinglePlayer()">Gegen Computer</button>
       <button class="btn btn-secondary" onclick="showScreen('screen-mp-menu')">Mehrspieler</button>
     </div>
     <div class="leaderboard-box">
@@ -139,7 +139,7 @@
   <div id="screen-mp-menu" class="screen">
     <h2>Mehrspieler</h2>
     <div class="menu-buttons">
-      <input id="name-input" type="text" placeholder="Dein Spitzname" maxlength="24" style="text-align:center;">
+      <input id="name-input" type="text" placeholder="Dein Nickname" maxlength="24" style="text-align:center;">
       <button class="btn btn-primary" onclick="createRoom()">Raum erstellen</button>
       <div class="join-row">
         <input id="room-input" type="text" placeholder="Raum-Code" maxlength="6">
@@ -171,7 +171,7 @@
   <div id="screen-placement" class="screen">
     <h2>Schiffe platzieren</h2>
     <p style="font-size:.82rem;color:#94a3b8;text-align:center;margin:-.25rem 0 .75rem;line-height:1.5;">
-      Wähle ein Schiff aus der Liste und klicke auf das Gitter, um es zu platzieren. Nutze Drehen (R) für die Ausrichtung. Platziere alle Schiffe und klicke auf Bereit!
+      Wähle ein Schiff aus der Liste und klicke auf das Gitter. Nutze Drehen (R) zum Wenden. Platziere alle Schiffe und klicke auf Bereit!
     </p>
     <div class="placement-layout">
       <div class="ship-list" id="ship-list"></div>
@@ -263,33 +263,33 @@
   <section class="seo-content">
     <div class="seo-inner">
       <h2>Schiffe versenken online spielen — Kostenlos, ohne Download</h2>
-      <p>Schiffe versenken Online ist eine kostenlose Browser-Version des klassischen Strategie-Brettspiels. Verstecke deine Flotte auf einem 10×10-Gitter und feuere abwechselnd auf die Schiffe deines Gegners, bis eine Flotte versenkt ist. Spiele allein gegen eine intelligente KI oder fordere einen Freund zum Echtzeit-Duell im Online-Mehrspieler-Modus heraus — ohne Download, ohne Anmeldung und ohne Werbung. Läuft sofort auf Desktop und Mobilgeräten.</p>
-      <h3 class="seo-h">So spielst du Schiffe versenken Online</h3>
+      <p>Schiffe versenken online ist eine kostenlose Browser-Version des klassischen Strategie-Brettspiels. Verstecke deine Flotte auf einem 10×10-Gitter und feuere abwechselnd auf die Schiffe deines Gegners, bis eine Flotte versenkt ist. Spiele solo gegen eine intelligente KI oder fordere Freunde im Echtzeit-Mehrspielermodus heraus — ohne Download, ohne Anmeldung und werbefrei. Läuft sofort auf Desktop und Mobilgeräten.</p>
+      <h3 class="seo-h">So spielst du Schiffe versenken online</h3>
       <ol class="seo-list">
-        <li>Wähle einen Modus — kämpfe gegen den Computer (Einfach, Mittel oder Schwer) oder erstelle einen Mehrspieler-Raum für ein Spiel mit einem Freund.</li>
+        <li>Wähle einen Modus — kämpfe gegen den Computer (Einfach, Mittel oder Schwer) oder erstelle einen Mehrspieler-Raum für Freunde.</li>
         <li>Platziere deine Flotte — positioniere deine fünf Schiffe auf dem Gitter. Drücke Drehen (R) zum Wenden oder Zufällig für ein schnelles Layout.</li>
         <li>Abwechselnd feuern — klicke auf ein Feld im gegnerischen Gitter. Ein Treffer wird rot markiert, ein Fehlschuss grau.</li>
         <li>Alle Schiffe versenken — der erste Admiral, der die gesamte feindliche Flotte versenkt, gewinnt die Schlacht.</li>
       </ol>
       <h3 class="seo-h">Spiel-Features</h3>
       <ul class="seo-list">
-        <li>Einzelspieler gegen KI mit drei Schwierigkeitsstufen — von Zufallsschüssen bis zur strategischen Jagd.</li>
+        <li>Einzelspieler gegen KI mit drei Schwierigkeitsstufen — von Zufallsschüssen bis hin zur Wahrscheinlichkeitsberechnung.</li>
         <li>Online-Mehrspieler für 2 Spieler — erstelle einen Raum und teile den Code oder Link, um in Echtzeit gegen Freunde zu spielen.</li>
         <li>Kostenlos und sofort — kein Account, keine Installation, kein Download erforderlich.</li>
         <li>Überall spielbar — funktioniert in jedem modernen Browser auf Desktop, Smartphone oder Tablet.</li>
       </ul>
-      <h3 class="seo-h">Häufig gestellte Fragen</h3>
+      <h3 class="seo-h">Häufig gestellte Fragen (FAQ)</h3>
       <div class="seo-faq">
-        <h4>Ist Schiffe versenken Online kostenlos?</h4>
+        <h4>Ist Schiffe versenken online kostenlos?</h4>
         <p>Ja. Es ist komplett kostenlos, ohne Anmeldung, ohne Werbung und ohne Download — einfach die Seite öffnen und loslegen.</p>
-        <h4>Kann ich Schiffe versenken online mit einem Freund spielen?</h4>
-        <p>Ja. Wähle Mehrspieler, erstelle einen Raum und teile den Raum-Code oder Link. Ihr spielt dann ein Live-Duell in Echtzeit gegeneinander.</p>
+        <h4>Kann ich Schiffe versenken online mit Freunden spielen?</h4>
+        <p>Ja. Wähle Mehrspieler, erstelle einen Raum und teile den Code oder Link. Ihr spielt ein Live-Duell in Echtzeit gegeneinander.</p>
         <h4>Muss ich etwas herunterladen oder installieren?</h4>
-        <p>Nein. Schiffe versenken Online läuft vollständig im Webbrowser, es ist also kein Download auf Desktop oder Handy nötig.</p>
+        <p>Nein. Schiffe versenken online läuft vollständig im Webbrowser, es ist kein Download auf Desktop oder Handy nötig.</p>
         <h4>Kann ich Schiffe versenken gegen den Computer spielen?</h4>
-        <p>Ja. Im Einzelspieler-Modus kannst du gegen eine KI in den Stufen Einfach, Mittel und Schwer antreten.</p>
-        <h4>Funktioniert Schiffe versenken Online auf dem Handy?</h4>
-        <p>Ja. Das Spiel ist so optimiert, dass es auf Handys, Tablets und Desktop-Browsern gleichermaßen funktioniert.</p>
+        <p>Ja. Im Einzelspielermodus kannst du gegen eine KI in den Stufen Einfach, Mittel und Schwer antreten.</p>
+        <h4>Funktioniert Schiffe versenken online auf dem Handy?</h4>
+        <p>Ja. Das Spiel ist für Smartphones, Tablets und Desktop-Browser optimiert.</p>
       </div>
       <p class="seo-cta"><a href="#" onclick="showScreen('screen-menu');window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Zurück zum Spiel — Schlacht starten</a></p>
     </div>
@@ -306,6 +306,12 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/name.js"></script>
+  <!-- i18n:runtime:start -->
+<script>
+window.__I18N__ = {"ships":{"1":"Flugzeugträger","2":"Schlachtschiff","3":"Kreuzer","4":"U-Boot","5":"Zerstörer"},"yourTurn":"Du bist dran","oppTurn":"Gegner ist dran","victory":"SIEG!","defeat":"NIEDERLAGE","wonSub":"Du hast alle feindlichen Schiffe versenkt!","lostSub":"Deine Flotte wurde zerstört.","copied":"Kopiert!","copyCode":"Code kopieren","copyLink":"Link kopieren","joiningRoom":"Trete Raum {code} bei…","waitingJoin":"Warte auf Beitritt des Gegners…","oppReady":"Gegner ist bereit!","oppDisconnected":"Gegner hat die Verbindung getrennt.","youSunkTheir":"Du hast ihr {ship} versenkt!","theySunkYour":"Sie haben dein {ship} versenkt!","youHit":"Treffer auf {cell}","youMissed":"Fehlschuss auf {cell}","oppHit":"Gegner trifft {cell}","oppMissed":"Gegner verfehlt {cell}"};
+window.t = function(k, p){ var d = window.__I18N__ || {}; var s = String(k).split('.').reduce(function(o,i){return (o==null)?undefined:o[i];}, d); if (s == null) s = k; if (p) for (var n in p) s = s.split('{'+n+'}').join(p[n]); return s; };
+</script>
+<!-- i18n:runtime:end -->
   <script src="/game.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->
 <script>

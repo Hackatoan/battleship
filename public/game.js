@@ -53,8 +53,8 @@ function setRoomInUrl(code) {
 function copyLink() {
   navigator.clipboard.writeText(window.location.href);
   const btn = event.target;
-  btn.textContent = 'Copied!';
-  setTimeout(() => btn.textContent = 'Copy Link', 1500);
+  btn.textContent = T('copied');
+  setTimeout(() => btn.textContent = T('copyLink'), 1500);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (room) {
     showScreen('screen-mp-menu');
     document.getElementById('room-input').value = room.toUpperCase();
-    document.getElementById('mp-status').textContent = `Joining room ${room.toUpperCase()}…`;
+    document.getElementById('mp-status').textContent = T('joiningRoom', { code: room.toUpperCase() });
     socket.emit('join_room', { code: room.toUpperCase(), name: currentName() });
   }
 });
@@ -122,8 +122,8 @@ function joinRoom() {
 function copyCode() {
   navigator.clipboard.writeText(state.roomCode);
   const btn = event.target;
-  btn.textContent = 'Copied!';
-  setTimeout(() => btn.textContent = 'Copy Code', 1500);
+  btn.textContent = T('copied');
+  setTimeout(() => btn.textContent = T('copyCode'), 1500);
 }
 
 // ── Socket events ─────────────────────────────────────────────────────────────
@@ -132,7 +132,7 @@ socket.on('room_created', ({ code }) => {
   state.mode = 'multi';
   document.getElementById('room-code-text').textContent = code;
   document.getElementById('room-code-display').classList.remove('hidden');
-  document.getElementById('mp-status').textContent = 'Waiting for opponent to join…';
+  document.getElementById('mp-status').textContent = T('waitingJoin');
   setRoomInUrl(code);
 });
 
@@ -153,7 +153,7 @@ socket.on('opponent_joined', () => {
 });
 
 socket.on('opponent_ready', () => {
-  document.getElementById('mp-status') && (document.getElementById('mp-status').textContent = 'Opponent is ready!');
+  document.getElementById('mp-status') && (document.getElementById('mp-status').textContent = T('oppReady'));
 });
 
 socket.on('waiting_for_opponent', () => {
@@ -172,13 +172,13 @@ socket.on('attack_result', ({ attacker, row, col, hit, sunkShip, won, nextTurn }
     state.oppHits[row][col] = hit ? 'hit' : 'miss';
     if (sunkShip) markSunkOnOppBoard(sunkShip);
     renderOppBoard();
-    logEntry(`You ${hit ? 'hit' : 'missed'} ${COLS[col]}${row + 1}`, hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
-    if (sunkShip) { logEntry(`You sunk their ${shipName(sunkShip)}!`, 'sunk'); updateShipStatus('opp', sunkShip); }
+    logEntry(hit ? T('youHit', { cell: COLS[col] + (row + 1) }) : T('youMissed', { cell: COLS[col] + (row + 1) }), hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
+    if (sunkShip) { logEntry(T('youSunkTheir', { ship: shipName(sunkShip) }), 'sunk'); updateShipStatus('opp', sunkShip); }
   } else {
     state.myHits[row][col] = hit ? 'hit' : 'miss';
     renderMyBoard();
-    logEntry(`Opponent ${hit ? 'hit' : 'missed'} ${COLS[col]}${row + 1}`, hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
-    if (sunkShip) { logEntry(`They sunk your ${shipName(sunkShip)}!`, 'sunk'); updateShipStatus('my', sunkShip); }
+    logEntry(hit ? T('oppHit', { cell: COLS[col] + (row + 1) }) : T('oppMissed', { cell: COLS[col] + (row + 1) }), hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
+    if (sunkShip) { logEntry(T('theySunkYour', { ship: shipName(sunkShip) }), 'sunk'); updateShipStatus('my', sunkShip); }
   }
   if (won) {
     showResult(iMadeAttack);
@@ -189,7 +189,7 @@ socket.on('attack_result', ({ attacker, row, col, hit, sunkShip, won, nextTurn }
 });
 
 socket.on('opponent_disconnected', () => {
-  if (!state.gameOver) alert('Opponent disconnected.');
+  if (!state.gameOver) alert(T('oppDisconnected'));
   showScreen('screen-menu');
 });
 
@@ -394,8 +394,8 @@ function aiAttack() {
 
     state.myHits[r][c] = hit ? 'hit' : 'miss';
     renderMyBoard();
-    logEntry(`Opponent ${hit ? 'hit' : 'missed'} ${COLS[c]}${r + 1}`, hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
-    if (sunkShip) logEntry(`They sunk your ${shipName(sunkShip)}!`, 'sunk');
+    logEntry(hit ? T('oppHit', { cell: COLS[c] + (r + 1) }) : T('oppMissed', { cell: COLS[c] + (r + 1) }), hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
+    if (sunkShip) logEntry(T('theySunkYour', { ship: shipName(sunkShip) }), 'sunk');
 
     const won = !state.myBoard.some(row => row.some(v => v > 0));
     if (won) { showResult(false); return; }
@@ -504,7 +504,7 @@ function updateShipStatus(who, shipId) {
 
 function updateTurnDisplay() {
   const el = document.getElementById('turn-indicator');
-  el.textContent = state.myTurn ? 'Your Turn' : 'Opponent\'s Turn';
+  el.textContent = state.myTurn ? T('yourTurn') : T('oppTurn');
   el.classList.toggle('opponent-turn', !state.myTurn);
 
   document.querySelectorAll('#opp-board .cell').forEach(cell => {
@@ -540,8 +540,8 @@ function onOppCellClick(r, c) {
     state.oppHits[r][c] = hit ? 'hit' : 'miss';
     if (sunkShip) updateShipStatus('opp', sunkShip);
     renderOppBoard();
-    logEntry(`You ${hit ? 'hit' : 'missed'} ${COLS[c]}${r + 1}`, hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
-    if (sunkShip) logEntry(`You sunk their ${shipName(sunkShip)}!`, 'sunk');
+    logEntry(hit ? T('youHit', { cell: COLS[c] + (r + 1) }) : T('youMissed', { cell: COLS[c] + (r + 1) }), hit ? (sunkShip ? 'sunk' : 'hit') : 'miss');
+    if (sunkShip) logEntry(T('youSunkTheir', { ship: shipName(sunkShip) }), 'sunk');
 
     const won = !board.some(row => row.some(v => v > 0));
     if (won) { showResult(true); return; }
@@ -641,10 +641,10 @@ function getCell(boardId, r, c) {
 function showResult(won) {
   state.gameOver = true;
   document.getElementById('result-icon').textContent = won ? '🏆' : '💥';
-  document.getElementById('result-title').textContent = won ? 'VICTORY!' : 'DEFEAT';
+  document.getElementById('result-title').textContent = won ? T('victory') : T('defeat');
   document.getElementById('result-sub').textContent = won
-    ? 'You sunk all enemy ships!'
-    : 'Your fleet has been destroyed.';
+    ? T('wonSub')
+    : T('lostSub');
   document.getElementById('result-title').style.color = won ? 'var(--accent)' : 'var(--danger)';
   showScreen('screen-result');
 }
@@ -668,4 +668,5 @@ function logEntry(msg, cls) {
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
-function shipName(id) { return SHIPS.find(s => s.id === id)?.name || 'Ship'; }
+function shipName(id) { return (window.t && t('ships.' + id)) || SHIPS.find(s => s.id === id)?.name || 'Ship'; }
+const T = (k, p) => (window.t ? t(k, p) : k);

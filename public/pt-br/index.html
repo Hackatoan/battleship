@@ -73,7 +73,7 @@
       "name": "Posso jogar Batalha Naval contra o computador?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sim. O modo de um jogador permite batalhar contra um oponente de IA nos níveis de dificuldade Fácil, Médio e Difícil."
+        "text": "Sim. O modo de um jogador permite que você lute contra um oponente de IA com níveis de dificuldade Fácil, Médio e Difícil."
       }
     },
     {
@@ -169,7 +169,7 @@
 
   <!-- Ship Placement -->
   <div id="screen-placement" class="screen">
-    <h2>Posicione Seus Navios</h2>
+    <h2>Posicione seus Navios</h2>
     <p style="font-size:.82rem;color:#94a3b8;text-align:center;margin:-.25rem 0 .75rem;line-height:1.5;">
       Selecione um navio da lista e clique na grade para posicioná-lo. Use Girar (R) para mudar a orientação. Posicione todos os navios e clique em Pronto!
     </p>
@@ -263,12 +263,12 @@
   <section class="seo-content">
     <div class="seo-inner">
       <h2>Jogue Batalha Naval Online — Grátis, Sem Download</h2>
-      <p>Batalha Naval Online é uma versão gratuita para navegador do clássico jogo de estratégia naval. Esconda sua frota em uma grade 10×10 e reveze os disparos contra os navios escondidos do seu oponente até que uma frota seja afundada. Jogue sozinho contra uma IA inteligente ou desafie um amigo para o modo multijogador online em tempo real — sem download, sem cadastro e sem anúncios. Funciona instantaneamente no desktop e celular.</p>
+      <p>Batalha Naval Online é uma versão gratuita para navegador do clássico jogo de estratégia naval. Esconda sua frota em uma grade 10×10 e reveze os tiros nos navios escondidos do seu oponente até que uma frota seja afundada. Jogue sozinho contra uma IA inteligente ou desafie um amigo para o modo multijogador online em tempo real — sem download, sem cadastro e sem anúncios. Funciona instantaneamente no desktop e no celular.</p>
       <h3 class="seo-h">Como Jogar Batalha Naval Online</h3>
       <ol class="seo-list">
-        <li>Escolha um modo — batalhe contra o computador (Fácil, Médio ou Difícil) ou crie uma sala multijogador para jogar com um amigo.</li>
+        <li>Escolha um modo — lute contra o computador (Fácil, Médio ou Difícil) ou crie uma sala multijogador para jogar com um amigo.</li>
         <li>Posicione sua frota — coloque seus cinco navios na grade. Pressione Girar (R) para virar um navio ou clique em Aleatório para um layout instantâneo.</li>
-        <li>Reveze os disparos — clique em um quadrado na grade do seu oponente para atirar. Um acerto é marcado em vermelho, um erro em cinza.</li>
+        <li>Revezem os tiros — clique em um quadrado na grade do seu oponente para atirar. Um acerto é marcado em vermelho, um erro em cinza.</li>
         <li>Afunde todos os navios — o primeiro almirante a afundar toda a frota inimiga vence a batalha.</li>
       </ol>
       <h3 class="seo-h">Recursos do Jogo</h3>
@@ -287,7 +287,7 @@
         <h4>Preciso baixar ou instalar algo?</h4>
         <p>Não. O Batalha Naval Online roda inteiramente no seu navegador, então não há nada para baixar ou instalar no desktop ou celular.</p>
         <h4>Posso jogar Batalha Naval contra o computador?</h4>
-        <p>Sim. O modo de um jogador permite batalhar contra um oponente de IA nos níveis de dificuldade Fácil, Médio e Difícil.</p>
+        <p>Sim. O modo de um jogador permite que você lute contra um oponente de IA com níveis de dificuldade Fácil, Médio e Difícil.</p>
         <h4>O Batalha Naval Online funciona no celular?</h4>
         <p>Sim. O jogo foi projetado para funcionar em celulares e tablets, bem como em navegadores de desktop.</p>
       </div>
@@ -297,15 +297,21 @@
 
   <footer style="position:fixed;bottom:0;width:100%;background:rgba(10,22,40,0.95);border-top:1px solid #1e4070;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;z-index:100;">
     <div style="display:flex;align-items:center;gap:16px;">
-      <span style="color:#6080a0;">Desenvolvido por <a href="https://hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:700;text-decoration:none;">Hackatoa</a></span>
+      <span style="color:#6080a0;">Criado por <a href="https://hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:700;text-decoration:none;">Hackatoa</a></span>
       <a href="https://games.hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:600;text-decoration:none;font-size:12px;">Todos os Jogos →</a>
       <a href="https://github.com/Hackatoan/battleship" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Código Fonte</a>
     </div>
-    <a href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener" style="background:#d0e8ff;color:#0a1628;padding:6px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid #00d4ff;">☕ Pague-me um café</a>
+    <a href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener" style="background:#d0e8ff;color:#0a1628;padding:6px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid #00d4ff;">☕ Me pague um café</a>
   </footer>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/name.js"></script>
+  <!-- i18n:runtime:start -->
+<script>
+window.__I18N__ = {"ships":{"1":"Porta-aviões","2":"Encouraçado","3":"Cruzador","4":"Submarino","5":"Contratorpedeiro"},"yourTurn":"Sua Vez","oppTurn":"Vez do Oponente","victory":"VITÓRIA!","defeat":"DERROTA","wonSub":"Você afundou todos os navios inimigos!","lostSub":"Sua frota foi destruída.","copied":"Copiado!","copyCode":"Copiar Código","copyLink":"Copiar Link","joiningRoom":"Entrando na sala {code}…","waitingJoin":"Aguardando oponente entrar…","oppReady":"Oponente está pronto!","oppDisconnected":"Oponente desconectado.","youSunkTheir":"Você afundou o {ship} deles!","theySunkYour":"Eles afundaram seu {ship}!","youHit":"Você acertou {cell}","youMissed":"Você errou {cell}","oppHit":"Oponente acertou {cell}","oppMissed":"Oponente errou {cell}"};
+window.t = function(k, p){ var d = window.__I18N__ || {}; var s = String(k).split('.').reduce(function(o,i){return (o==null)?undefined:o[i];}, d); if (s == null) s = k; if (p) for (var n in p) s = s.split('{'+n+'}').join(p[n]); return s; };
+</script>
+<!-- i18n:runtime:end -->
   <script src="/game.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->
 <script>
