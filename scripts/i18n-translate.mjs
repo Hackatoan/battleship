@@ -48,6 +48,7 @@ Hard rules:
 - Return ONLY the translated JSON object, same keys and structure, valid JSON.
 - Do NOT translate JSON keys. Keep arrays the same length and order.
 - Keep any emoji and leading symbols (e.g. "🏆", "☕", "↑", "→") exactly.
+- Keep any {curly} placeholder tokens (e.g. {code}, {ship}, {cell}) EXACTLY as-is, unchanged and untranslated.
 - Use the natural, commonly-searched local name of the game for "gameName", "logoTitle", "title" and "ogTitle" (e.g. German "Schiffe versenken", Spanish "Batalla Naval"). "logoTitle" should be uppercase.
 - Keep it natural and idiomatic for native speakers, concise enough to fit game buttons.
 - Set "htmlLang" to "${code}".

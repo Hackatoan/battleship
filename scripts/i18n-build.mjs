@@ -26,6 +26,7 @@ const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 let base = readFileSync(join(ROOT, 'public/index.html'), 'utf8');
 base = base.replace(/\s*<!-- i18n:hreflang:start -->[\s\S]*?<!-- i18n:hreflang:end -->/g, '');
 base = base.replace(/\s*<!-- i18n:switcher:start -->[\s\S]*?<!-- i18n:switcher:end -->/g, '');
+base = base.replace(/\s*<!-- i18n:runtime:start -->[\s\S]*?<!-- i18n:runtime:end -->/g, '');
 
 // ---- shared fragments ----
 const hreflangBlock = () => {
@@ -81,9 +82,16 @@ const injectHead = (html, cur) =>
   html.replace('</head>', `${hreflangBlock()}\n</head>`)
       .replace(/(<body[^>]*>)/, `$1${switcher(cur)}`);
 
+// inject the runtime string dictionary + a tiny t() helper before game.js so
+// game.js can localize strings it renders at play-time (turn/win/lose/log text)
+const injectRuntime = (html, runtime) => {
+  const block = `<!-- i18n:runtime:start -->\n<script>\nwindow.__I18N__ = ${JSON.stringify(runtime)};\nwindow.t = function(k, p){ var d = window.__I18N__ || {}; var s = String(k).split('.').reduce(function(o,i){return (o==null)?undefined:o[i];}, d); if (s == null) s = k; if (p) for (var n in p) s = s.split('{'+n+'}').join(p[n]); return s; };\n</script>\n<!-- i18n:runtime:end -->\n  `;
+  return html.replace(/(<script src="\/?game\.js"><\/script>)/, `${block}$1`);
+};
+
 // ---- English page: inject hreflang + switcher only, keep everything else ----
 {
-  let html = injectHead(base, 'en');
+  let html = injectRuntime(injectHead(base, 'en'), en.runtime);
   writeFileSync(join(ROOT, 'public/index.html'), html);
   console.log('en  -> public/index.html');
 }
@@ -130,7 +138,7 @@ for (const loc of LOCALES.filter((l) => l !== 'en')) {
              .replace(/src="name\.js"/g, 'src="/name.js"')
              .replace(/src="game\.js"/g, 'src="/game.js"');
 
-  html = injectHead(html, loc);
+  html = injectRuntime(injectHead(html, loc), t.runtime);
   mkdirSync(join(ROOT, `public/${loc}`), { recursive: true });
   writeFileSync(join(ROOT, `public/${loc}/index.html`), html);
   console.log(`${loc.padEnd(3)} -> public/${loc}/index.html`);

@@ -2,56 +2,56 @@
   "htmlLang": "es",
   "gameName": "Batalla Naval",
   "logoTitle": "BATALLA NAVAL",
-  "title": "Batalla Naval Online — Juego Multijugador para Navegador | Hackatoa",
+  "title": "Batalla Naval Online — Juego de Navegador Multijugador | Hackatoa",
   "description": "Juega a la Batalla Naval online contra un amigo. El clásico juego de estrategia naval en tu navegador: coloca tu flota y hunde los barcos de tu oponente. Gratis e instantáneo.",
-  "ogTitle": "Batalla Naval Online — Juego Multijugador para Navegador",
+  "ogTitle": "Batalla Naval Online — Juego de Navegador Multijugador",
   "ui": {
     "vsComputer": "VS Computadora",
     "multiplayer": "Multijugador",
-    "createRoom": "Crear sala",
+    "createRoom": "Crear Sala",
     "join": "Unirse",
     "nickname": "Tu apodo",
     "roomCode": "Código de sala",
     "back": "Atrás",
-    "copyCode": "Copiar código",
-    "copyLink": "Copiar enlace",
+    "copyCode": "Copiar Código",
+    "copyLink": "Copiar Enlace",
     "difficulty": "Dificultad",
     "easy": "Fácil",
-    "medium": "Media",
+    "medium": "Medio",
     "hard": "Difícil",
-    "difficultyHint": "Fácil: disparos aleatorios | Media: búsqueda y ataque | Difícil: basado en probabilidad",
-    "placeShips": "Coloca tus barcos",
-    "placeShipsHint": "Selecciona un barco de la lista, luego haz clic en la cuadrícula para colocarlo. Usa Rotar (R) para cambiar la orientación. ¡Coloca todos los barcos y pulsa Listo!",
+    "difficultyHint": "Fácil: disparos aleatorios | Medio: busca y ataca | Difícil: basado en probabilidad",
+    "placeShips": "Coloca tus Barcos",
+    "placeShipsHint": "Selecciona un barco de la lista y haz clic en la cuadrícula para colocarlo. Usa Rotar (R) para cambiar la orientación. ¡Coloca todos los barcos y pulsa Listo!",
     "rotate": "Rotar (R)",
     "random": "Aleatorio",
     "ready": "¡Listo!",
     "waiting": "Esperando al oponente...",
-    "yourFleet": "Tu flota",
-    "enemyWaters": "Aguas enemigas",
+    "yourFleet": "Tu Flota",
+    "enemyWaters": "Aguas Enemigas",
     "you": "TÚ",
     "opponent": "OPONENTE",
-    "playAgain": "Jugar de nuevo",
-    "mainMenu": "Menú principal",
+    "playAgain": "Jugar de Nuevo",
+    "mainMenu": "Menú Principal",
     "leaderboard": "🏆 Clasificación"
   },
   "seo": {
-    "h2": "Juega a la Batalla Naval Online — Gratis, sin descargas",
-    "intro": "Batalla Naval Online es una versión gratuita para navegador del clásico juego de estrategia naval. Esconde tu flota en una cuadrícula de 10×10 y túrnate para disparar a los barcos ocultos de tu oponente hasta hundir su flota. Juega solo contra una IA inteligente o desafía a un amigo en el modo multijugador online para 2 jugadores en tiempo real: sin descargas, sin registros y sin anuncios. Funciona al instante en PC y móviles.",
-    "howToTitle": "Cómo jugar a la Batalla Naval Online",
+    "h2": "Juega a la Batalla Naval Online — Gratis, Sin Descargas",
+    "intro": "Batalla Naval Online es una versión gratuita para navegador del clásico juego de estrategia naval. Esconde tu flota en una cuadrícula de 10×10 y túrnate para disparar a los barcos ocultos de tu oponente hasta hundir su flota. Juega solo contra una IA inteligente o desafía a un amigo en el multijugador online en tiempo real: sin descargas, sin registros y sin anuncios. Funciona al instante en escritorio y móviles.",
+    "howToTitle": "Cómo Jugar a la Batalla Naval Online",
     "howToSteps": [
-      "Elige un modo: lucha contra la computadora (Fácil, Media o Difícil) o crea una sala multijugador para jugar con un amigo.",
-      "Coloca tu flota: ubica tus cinco barcos en la cuadrícula. Pulsa Rotar (R) para girar un barco o dale a Aleatorio para un diseño instantáneo.",
-      "Túrnense para disparar: haz clic en un cuadro de la cuadrícula enemiga para disparar. Un acierto se marca en rojo, un fallo en gris.",
+      "Elige un modo: lucha contra la computadora (Fácil, Medio o Difícil) o crea una sala multijugador para jugar con un amigo.",
+      "Coloca tu flota: posiciona tus cinco barcos en la cuadrícula. Pulsa Rotar (R) para girar un barco, o pulsa Aleatorio para un diseño instantáneo.",
+      "Túrnense para disparar: haz clic en un cuadro de la cuadrícula de tu oponente para disparar. Un acierto se marca en rojo, un fallo en gris.",
       "Hunde todos los barcos: el primer almirante en hundir toda la flota enemiga gana la batalla."
     ],
-    "featuresTitle": "Características del juego",
+    "featuresTitle": "Características del Juego",
     "features": [
-      "Modo individual contra la IA con tres niveles de dificultad: desde disparos aleatorios hasta caza basada en probabilidades.",
+      "Un jugador vs IA con tres niveles de dificultad: desde disparos aleatorios hasta búsqueda basada en probabilidad.",
       "Multijugador online para 2 jugadores: crea una sala y comparte el código o enlace para jugar con un amigo en tiempo real.",
-      "Gratis e instantáneo: sin cuentas, sin instalaciones, sin descargas.",
-      "Juega en cualquier lugar: funciona en cualquier navegador moderno en PC, móvil o tableta."
+      "Gratis e instantáneo: sin cuenta, sin instalación, sin necesidad de descarga.",
+      "Juega en cualquier lugar: funciona en cualquier navegador moderno en escritorio, teléfono o tableta."
     ],
-    "faqTitle": "Preguntas frecuentes",
+    "faqTitle": "Preguntas Frecuentes",
     "faqs": [
       {
         "q": "¿Es gratis jugar a la Batalla Naval Online?",
@@ -59,28 +59,56 @@
       },
       {
         "q": "¿Puedo jugar a la Batalla Naval online con un amigo?",
-        "a": "Sí. Elige Multijugador, crea una sala y comparte el código o el enlace. Jugarán una partida en vivo para 2 jugadores en tiempo real."
+        "a": "Sí. Elige Multijugador, crea una sala y comparte el código o enlace. Jugarán una partida en vivo para 2 jugadores en tiempo real."
       },
       {
         "q": "¿Necesito descargar o instalar algo?",
-        "a": "No. Batalla Naval Online funciona totalmente en tu navegador web, por lo que no hay nada que descargar ni instalar en PC o móvil."
+        "a": "No. Batalla Naval Online se ejecuta totalmente en tu navegador web, por lo que no hay nada que descargar ni instalar en escritorio o móvil."
       },
       {
         "q": "¿Puedo jugar a la Batalla Naval contra la computadora?",
-        "a": "Sí. El modo individual te permite luchar contra un oponente de IA con niveles de dificultad Fácil, Media y Difícil."
+        "a": "Sí. El modo de un solo jugador te permite luchar contra un oponente de IA con niveles de dificultad Fácil, Medio y Difícil."
       },
       {
-        "q": "¿Funciona la Batalla Naval Online en móviles?",
-        "a": "Sí. El juego está diseñado para funcionar tanto en teléfonos y tabletas como en navegadores de escritorio."
+        "q": "¿Funciona Batalla Naval Online en móviles?",
+        "a": "Sí. El juego está diseñado para funcionar en teléfonos y tabletas, así como en navegadores de escritorio."
       }
     ],
-    "cta": "↑ Volver al juego — empezar batalla"
+    "cta": "↑ Volver al juego — empezar una batalla"
   },
   "footer": {
     "builtBy": "Creado por",
-    "allGames": "Todos los juegos →",
-    "sourceCode": "Código fuente",
+    "allGames": "Todos los Juegos →",
+    "sourceCode": "Código Fuente",
     "coffee": "☕ Cómprame un café"
+  },
+  "runtime": {
+    "ships": {
+      "1": "Portaaviones",
+      "2": "Acorazado",
+      "3": "Crucero",
+      "4": "Submarino",
+      "5": "Destructor"
+    },
+    "yourTurn": "Tu Turno",
+    "oppTurn": "Turno del Oponente",
+    "victory": "¡VICTORIA!",
+    "defeat": "DERROTA",
+    "wonSub": "¡Has hundido todos los barcos enemigos!",
+    "lostSub": "Tu flota ha sido destruida.",
+    "copied": "¡Copiado!",
+    "copyCode": "Copiar Código",
+    "copyLink": "Copiar Enlace",
+    "joiningRoom": "Uniéndose a la sala {code}…",
+    "waitingJoin": "Esperando a que el oponente se una…",
+    "oppReady": "¡El oponente está listo!",
+    "oppDisconnected": "El oponente se ha desconectado.",
+    "youSunkTheir": "¡Hundiste su {ship}!",
+    "theySunkYour": "¡Hundieron tu {ship}!",
+    "youHit": "Acertaste en {cell}",
+    "youMissed": "Fallaste en {cell}",
+    "oppHit": "El oponente acertó en {cell}",
+    "oppMissed": "El oponente falló en {cell}"
   },
   "_meta": {
     "site": "battleship",

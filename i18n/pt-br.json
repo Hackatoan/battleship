@@ -20,7 +20,7 @@
     "medium": "Médio",
     "hard": "Difícil",
     "difficultyHint": "Fácil: tiros aleatórios | Médio: caça e alvo | Difícil: baseado em probabilidade",
-    "placeShips": "Posicione Seus Navios",
+    "placeShips": "Posicione seus Navios",
     "placeShipsHint": "Selecione um navio da lista e clique na grade para posicioná-lo. Use Girar (R) para mudar a orientação. Posicione todos os navios e clique em Pronto!",
     "rotate": "Girar (R)",
     "random": "Aleatório",
@@ -36,12 +36,12 @@
   },
   "seo": {
     "h2": "Jogue Batalha Naval Online — Grátis, Sem Download",
-    "intro": "Batalha Naval Online é uma versão gratuita para navegador do clássico jogo de estratégia naval. Esconda sua frota em uma grade 10×10 e reveze os disparos contra os navios escondidos do seu oponente até que uma frota seja afundada. Jogue sozinho contra uma IA inteligente ou desafie um amigo para o modo multijogador online em tempo real — sem download, sem cadastro e sem anúncios. Funciona instantaneamente no desktop e celular.",
+    "intro": "Batalha Naval Online é uma versão gratuita para navegador do clássico jogo de estratégia naval. Esconda sua frota em uma grade 10×10 e reveze os tiros nos navios escondidos do seu oponente até que uma frota seja afundada. Jogue sozinho contra uma IA inteligente ou desafie um amigo para o modo multijogador online em tempo real — sem download, sem cadastro e sem anúncios. Funciona instantaneamente no desktop e no celular.",
     "howToTitle": "Como Jogar Batalha Naval Online",
     "howToSteps": [
-      "Escolha um modo — batalhe contra o computador (Fácil, Médio ou Difícil) ou crie uma sala multijogador para jogar com um amigo.",
+      "Escolha um modo — lute contra o computador (Fácil, Médio ou Difícil) ou crie uma sala multijogador para jogar com um amigo.",
       "Posicione sua frota — coloque seus cinco navios na grade. Pressione Girar (R) para virar um navio ou clique em Aleatório para um layout instantâneo.",
-      "Reveze os disparos — clique em um quadrado na grade do seu oponente para atirar. Um acerto é marcado em vermelho, um erro em cinza.",
+      "Revezem os tiros — clique em um quadrado na grade do seu oponente para atirar. Um acerto é marcado em vermelho, um erro em cinza.",
       "Afunde todos os navios — o primeiro almirante a afundar toda a frota inimiga vence a batalha."
     ],
     "featuresTitle": "Recursos do Jogo",
@@ -67,7 +67,7 @@
       },
       {
         "q": "Posso jogar Batalha Naval contra o computador?",
-        "a": "Sim. O modo de um jogador permite batalhar contra um oponente de IA nos níveis de dificuldade Fácil, Médio e Difícil."
+        "a": "Sim. O modo de um jogador permite que você lute contra um oponente de IA com níveis de dificuldade Fácil, Médio e Difícil."
       },
       {
         "q": "O Batalha Naval Online funciona no celular?",
@@ -77,10 +77,38 @@
     "cta": "↑ Voltar para o jogo — começar uma batalha"
   },
   "footer": {
-    "builtBy": "Desenvolvido por",
+    "builtBy": "Criado por",
     "allGames": "Todos os Jogos →",
     "sourceCode": "Código Fonte",
-    "coffee": "☕ Pague-me um café"
+    "coffee": "☕ Me pague um café"
+  },
+  "runtime": {
+    "ships": {
+      "1": "Porta-aviões",
+      "2": "Encouraçado",
+      "3": "Cruzador",
+      "4": "Submarino",
+      "5": "Contratorpedeiro"
+    },
+    "yourTurn": "Sua Vez",
+    "oppTurn": "Vez do Oponente",
+    "victory": "VITÓRIA!",
+    "defeat": "DERROTA",
+    "wonSub": "Você afundou todos os navios inimigos!",
+    "lostSub": "Sua frota foi destruída.",
+    "copied": "Copiado!",
+    "copyCode": "Copiar Código",
+    "copyLink": "Copiar Link",
+    "joiningRoom": "Entrando na sala {code}…",
+    "waitingJoin": "Aguardando oponente entrar…",
+    "oppReady": "Oponente está pronto!",
+    "oppDisconnected": "Oponente desconectado.",
+    "youSunkTheir": "Você afundou o {ship} deles!",
+    "theySunkYour": "Eles afundaram seu {ship}!",
+    "youHit": "Você acertou {cell}",
+    "youMissed": "Você errou {cell}",
+    "oppHit": "Oponente acertou {cell}",
+    "oppMissed": "Oponente errou {cell}"
   },
   "_meta": {
     "site": "battleship",
