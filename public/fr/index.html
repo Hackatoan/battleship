@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bataille Navale en ligne — Jeu multijoueur sur navigateur | Hackatoa</title>
+  <meta name="description" content="Jouez à la Bataille Navale en ligne contre un ami. Jeu de stratégie navale classique dans votre navigateur — placez votre flotte et coulez les navires de votre adversaire. Gratuit et instantané." />
+  <meta name="author" content="Preston Harris" />
+  <meta name="keywords" content="battleship, online battleship, multiplayer battleship, browser game, naval strategy, Hackatoa" />
+  <meta property="og:title" content="Bataille Navale en ligne — Jeu multijoueur sur navigateur" />
+  <meta property="og:description" content="Jouez à la Bataille Navale en ligne contre un ami. Jeu de stratégie navale classique dans votre navigateur — placez votre flotte et coulez les navires de votre adversaire. Gratuit et instantané." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://battleship.hackatoa.com/" />
+  <meta property="og:image" content="https://battleship.hackatoa.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Battleship Online — naval strategy browser game" />
+  <meta property="og:site_name" content="Hackatoa" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bataille Navale en ligne — Jeu multijoueur sur navigateur" />
+  <meta name="twitter:description" content="Jouez à la Bataille Navale en ligne contre un ami. Jeu de stratégie navale classique dans votre navigateur — placez votre flotte et coulez les navires de votre adversaire. Gratuit et instantané." />
+  <meta name="twitter:image" content="https://battleship.hackatoa.com/og.png" />
+  <meta name="twitter:site" content="@jhackatoa" />
+  <link rel="canonical" href="https://battleship.hackatoa.com/fr/" />  <meta name="application-name" content="Hackatoa Games" />
+  <meta name="robots" content="index, follow" />  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Battleship Online",
+  "url": "https://battleship.hackatoa.com/",
+  "description": "Classic naval Battleship in your browser. Play solo vs AI or challenge a friend online in real-time multiplayer.",
+  "genre": ["Strategy", "Board Game"],
+  "playMode": ["SinglePlayer", "MultiPlayer"],
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Web Browser",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "Preston Harris", "alternateName": "Hackatoa", "url": "https://hackatoa.com" },
+  "isPartOf": { "@type": "WebSite", "name": "Hackatoa Games", "url": "https://games.hackatoa.com" }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "La Bataille Navale en ligne est-elle gratuite ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. C'est totalement gratuit, sans inscription, sans publicité et sans téléchargement — ouvrez simplement la page et jouez."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je jouer à la Bataille Navale en ligne avec un ami ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Choisissez Multijoueur, créez une salle et partagez le code ou le lien. Vous jouerez une partie en direct à 2 joueurs en temps réel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dois-je télécharger ou installer quelque chose ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. La Bataille Navale en ligne s'exécute entièrement dans votre navigateur web, il n'y a donc rien à télécharger ou à installer sur ordinateur ou mobile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je jouer à la Bataille Navale contre l'ordinateur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le mode solo vous permet d'affronter une IA avec des niveaux de difficulté Facile, Moyen et Difficile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La Bataille Navale en ligne fonctionne-t-elle sur mobile ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le jeu est conçu pour fonctionner sur téléphones et tablettes ainsi que sur les navigateurs d'ordinateur."
+      }
+    }
+  ]
+}
+  </script>
+  <style>
+    body { padding-bottom: 50px; }
+  </style>
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- i18n:hreflang:start -->
+  <link rel="alternate" hreflang="en" href="https://battleship.hackatoa.com/" />
+  <link rel="alternate" hreflang="es" href="https://battleship.hackatoa.com/es/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://battleship.hackatoa.com/pt-br/" />
+  <link rel="alternate" hreflang="fr" href="https://battleship.hackatoa.com/fr/" />
+  <link rel="alternate" hreflang="de" href="https://battleship.hackatoa.com/de/" />
+  <link rel="alternate" hreflang="vi" href="https://battleship.hackatoa.com/vi/" />
+  <link rel="alternate" hreflang="th" href="https://battleship.hackatoa.com/th/" />
+  <link rel="alternate" hreflang="x-default" href="https://battleship.hackatoa.com/" />
+  <!-- i18n:hreflang:end -->
+</head>
+<body>
+<!-- i18n:switcher:start -->
+<nav aria-label="Language" style="position:fixed;top:8px;right:10px;z-index:300;font-size:12px;font-family:system-ui,-apple-system,sans-serif;background:rgba(10,22,40,.9);border:1px solid #1e4070;border-radius:999px;padding:5px 12px;display:flex;gap:9px;box-shadow:0 2px 10px rgba(0,0,0,.35);">
+  <a href="/" hreflang="en" style="color:#9fb6d0;text-decoration:none;">EN</a>
+  <a href="/es/" hreflang="es" style="color:#9fb6d0;text-decoration:none;">ES</a>
+  <a href="/pt-br/" hreflang="pt-BR" style="color:#9fb6d0;text-decoration:none;">PT</a>
+  <a href="/fr/" hreflang="fr" aria-current="true" style="color:#fff;font-weight:700;text-decoration:none;">FR</a>
+  <a href="/de/" hreflang="de" style="color:#9fb6d0;text-decoration:none;">DE</a>
+  <a href="/vi/" hreflang="vi" style="color:#9fb6d0;text-decoration:none;">VI</a>
+  <a href="/th/" hreflang="th" style="color:#9fb6d0;text-decoration:none;">TH</a>
+</nav>
+<!-- i18n:switcher:end -->
+  <main class="game-stage">
+  <!-- Menu -->
+  <div id="screen-menu" class="screen active">
+    <div class="logo">
+      <div class="logo-icon">⚓</div>
+      <h1>BATAILLE NAVALE</h1>
+    </div>
+    <div class="menu-buttons">
+      <button class="btn btn-primary" onclick="startSinglePlayer()">Contre l'ordinateur</button>
+      <button class="btn btn-secondary" onclick="showScreen('screen-mp-menu')">Multijoueur</button>
+    </div>
+    <div class="leaderboard-box">
+      <h3>🏆 Classement</h3>
+      <table class="leaderboard">
+        <thead><tr><th>#</th><th>Player</th><th>W</th><th>L</th><th>D</th></tr></thead>
+        <tbody id="lb-body"><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Multiplayer Menu -->
+  <div id="screen-mp-menu" class="screen">
+    <h2>Multijoueur</h2>
+    <div class="menu-buttons">
+      <input id="name-input" type="text" placeholder="Votre pseudo" maxlength="24" style="text-align:center;">
+      <button class="btn btn-primary" onclick="createRoom()">Créer une salle</button>
+      <div class="join-row">
+        <input id="room-input" type="text" placeholder="Code de la salle" maxlength="6">
+        <button class="btn btn-secondary" onclick="joinRoom()">Rejoindre</button>
+      </div>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Retour</button>
+    </div>
+    <div id="mp-status" class="status-msg"></div>
+    <div id="room-code-display" class="room-code hidden">
+      Room: <span id="room-code-text"></span>
+      <button class="btn-copy" onclick="copyCode()">Copier le code</button>
+      <button class="btn-copy" onclick="copyLink()">Copier le lien</button>
+    </div>
+  </div>
+
+  <!-- Difficulty (single player) -->
+  <div id="screen-difficulty" class="screen">
+    <h2>Difficulté</h2>
+    <div class="menu-buttons">
+      <button class="btn btn-primary" onclick="setDifficulty('easy')">Facile</button>
+      <button class="btn btn-secondary" onclick="setDifficulty('medium')">Moyen</button>
+      <button class="btn btn-danger" onclick="setDifficulty('hard')">Difficile</button>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Retour</button>
+    </div>
+    <p class="hint">Facile : tirs aléatoires | Moyen : traque et cible | Difficile : basé sur les probabilités</p>
+  </div>
+
+  <!-- Ship Placement -->
+  <div id="screen-placement" class="screen">
+    <h2>Placez vos navires</h2>
+    <p style="font-size:.82rem;color:#94a3b8;text-align:center;margin:-.25rem 0 .75rem;line-height:1.5;">
+      Sélectionnez un navire, puis cliquez sur la grille pour le placer. Utilisez Rotation (R) pour changer l'orientation. Placez tous les navires, puis cliquez sur Prêt !
+    </p>
+    <div class="placement-layout">
+      <div class="ship-list" id="ship-list"></div>
+      <div class="placement-area">
+        <div class="board-wrap">
+          <div class="board-labels">
+            <div class="corner"></div>
+            <div class="col-labels" id="col-labels-place"></div>
+          </div>
+          <div class="board-row-wrap">
+            <div class="row-labels" id="row-labels-place"></div>
+            <div class="board" id="place-board"></div>
+          </div>
+        </div>
+        <div class="placement-controls">
+          <button class="btn btn-secondary" onclick="rotateShip()">Rotation (R)</button>
+          <button class="btn btn-ghost" onclick="randomPlacement()">Aléatoire</button>
+          <button class="btn btn-primary" id="ready-btn" onclick="confirmPlacement()" disabled>Prêt !</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Waiting -->
+  <div id="screen-waiting" class="screen">
+    <div class="waiting-content">
+      <div class="spinner"></div>
+      <p>En attente de l'adversaire...</p>
+    </div>
+  </div>
+
+  <!-- Game -->
+  <div id="screen-game" class="screen">
+    <div class="game-header">
+      <div class="player-info" id="my-info">
+        <span class="player-label">VOUS</span>
+        <div class="ship-status" id="my-ships"></div>
+      </div>
+      <div class="turn-indicator" id="turn-indicator">Your Turn</div>
+      <div class="player-info" id="opp-info">
+        <span class="player-label">ADVERSAIRE</span>
+        <div class="ship-status" id="opp-ships"></div>
+      </div>
+    </div>
+    <div class="game-boards">
+      <div class="board-section">
+        <h3>Votre flotte</h3>
+        <div class="board-wrap">
+          <div class="board-labels">
+            <div class="corner"></div>
+            <div class="col-labels" id="col-labels-my"></div>
+          </div>
+          <div class="board-row-wrap">
+            <div class="row-labels" id="row-labels-my"></div>
+            <div class="board" id="my-board"></div>
+          </div>
+        </div>
+      </div>
+      <div class="board-section">
+        <h3>Eaux ennemies</h3>
+        <div class="board-wrap">
+          <div class="board-labels">
+            <div class="corner"></div>
+            <div class="col-labels" id="col-labels-opp"></div>
+          </div>
+          <div class="board-row-wrap">
+            <div class="row-labels" id="row-labels-opp"></div>
+            <div class="board" id="opp-board"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="game-log" id="game-log"></div>
+  </div>
+
+  <!-- Result -->
+  <div id="screen-result" class="screen">
+    <div class="result-content">
+      <div class="result-icon" id="result-icon"></div>
+      <h2 id="result-title"></h2>
+      <p id="result-sub"></p>
+      <button class="btn btn-primary" onclick="playAgain()">Rejouer</button>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Menu principal</button>
+    </div>
+  </div>
+  </main>
+
+  <!-- SEO / informational content (always in the DOM, crawlable, shown below the game) -->
+  <section class="seo-content">
+    <div class="seo-inner">
+      <h2>Jouez à la Bataille Navale en ligne — Gratuit, sans téléchargement</h2>
+      <p>La Bataille Navale en ligne est une version gratuite sur navigateur du jeu de stratégie navale classique. Cachez votre flotte sur une grille de 10×10, puis tirez à tour de rôle sur les navires cachés de votre adversaire jusqu'à ce qu'une flotte soit coulée. Jouez en solo contre une IA intelligente ou défiez un ami en multijoueur en temps réel — sans téléchargement, sans inscription et sans publicité. Fonctionne instantanément sur ordinateur et mobile.</p>
+      <h3 class="seo-h">Comment jouer à la Bataille Navale en ligne</h3>
+      <ol class="seo-list">
+        <li>Choisissez un mode — affrontez l'ordinateur (Facile, Moyen ou Difficile) ou créez une salle multijoueur pour jouer avec un ami.</li>
+        <li>Placez votre flotte — positionnez vos cinq navires sur la grille. Appuyez sur Rotation (R) pour faire pivoter un navire, ou sur Aléatoire pour une disposition instantanée.</li>
+        <li>Tirez à tour de rôle — cliquez sur une case de la grille adverse pour tirer. Un coup réussi est marqué en rouge, un échec en gris.</li>
+        <li>Coulez tous les navires — le premier amiral à couler toute la flotte ennemie remporte la bataille.</li>
+      </ol>
+      <h3 class="seo-h">Caractéristiques du jeu</h3>
+      <ul class="seo-list">
+        <li>Mode solo contre l'IA avec trois niveaux de difficulté — des tirs aléatoires à la traque probabiliste.</li>
+        <li>Multijoueur en ligne à 2 joueurs — créez une salle et partagez le code ou le lien pour jouer avec un ami en temps réel.</li>
+        <li>Gratuit et instantané — aucun compte, aucune installation, aucun téléchargement requis.</li>
+        <li>Jouez partout — fonctionne sur n'importe quel navigateur moderne sur ordinateur, téléphone ou tablette.</li>
+      </ul>
+      <h3 class="seo-h">Foire Aux Questions</h3>
+      <div class="seo-faq">
+        <h4>La Bataille Navale en ligne est-elle gratuite ?</h4>
+        <p>Oui. C'est totalement gratuit, sans inscription, sans publicité et sans téléchargement — ouvrez simplement la page et jouez.</p>
+        <h4>Puis-je jouer à la Bataille Navale en ligne avec un ami ?</h4>
+        <p>Oui. Choisissez Multijoueur, créez une salle et partagez le code ou le lien. Vous jouerez une partie en direct à 2 joueurs en temps réel.</p>
+        <h4>Dois-je télécharger ou installer quelque chose ?</h4>
+        <p>Non. La Bataille Navale en ligne s'exécute entièrement dans votre navigateur web, il n'y a donc rien à télécharger ou à installer sur ordinateur ou mobile.</p>
+        <h4>Puis-je jouer à la Bataille Navale contre l'ordinateur ?</h4>
+        <p>Oui. Le mode solo vous permet d'affronter une IA avec des niveaux de difficulté Facile, Moyen et Difficile.</p>
+        <h4>La Bataille Navale en ligne fonctionne-t-elle sur mobile ?</h4>
+        <p>Oui. Le jeu est conçu pour fonctionner sur téléphones et tablettes ainsi que sur les navigateurs d'ordinateur.</p>
+      </div>
+      <p class="seo-cta"><a href="#" onclick="showScreen('screen-menu');window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Retour au jeu — commencer une bataille</a></p>
+    </div>
+  </section>
+
+  <footer style="position:fixed;bottom:0;width:100%;background:rgba(10,22,40,0.95);border-top:1px solid #1e4070;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;z-index:100;">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span style="color:#6080a0;">Créé par <a href="https://hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:700;text-decoration:none;">Hackatoa</a></span>
+      <a href="https://games.hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:600;text-decoration:none;font-size:12px;">Tous les jeux →</a>
+      <a href="https://github.com/Hackatoan/battleship" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Code source</a>
+    </div>
+    <a href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener" style="background:#d0e8ff;color:#0a1628;padding:6px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid #00d4ff;">☕ Offrez-moi un café</a>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/name.js"></script>
+  <script src="/game.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->
+<script>
+/* ── THE VOLCANO PROTOCOL — Seal V (final) ── */
+;(function(){try{
+  var gold='color:#ffd600;font-family:monospace;font-size:12px;text-shadow:0 0 6px rgba(255,214,0,.55)';
+  var dim='color:#827717;font-family:monospace;font-size:12px';
+  var red='color:#ff4d4d;font-family:monospace;font-size:12px';
+  console.log('%c▲ SEAL  V / V  — VOLCANO PROTOCOL', gold);
+  console.log('%cThe grid where fleets sink — you against the machine. The last fragment.', dim);
+  console.log('%cDecode it (ROT13):', red);
+  console.log('%c    BA', gold);
+  console.log('%cAll five seals in hand. Assemble I→V and face me: hackatoa.com/protocol', dim);
+}catch(e){}})();
+</script>
+</body>
+</html>
