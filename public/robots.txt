@@ -1,13 +1,15 @@
-User-agent: *
-Allow: /
-
-User-agent: GPTBot
-Disallow: /
+# Cloudflare "Managed robots.txt" is prepended to this file at the edge.
+# That managed block supplies the `User-agent: *` group + Content-Signal
+# directives and already disallows: Amazonbot, Applebot-Extended, Bytespider,
+# CCBot, ClaudeBot, CloudflareBrowserRenderingCrawler, Google-Extended, GPTBot,
+# meta-externalagent. The rules below add the AI/scraper bots it does NOT cover.
+#
+# NOTE: if Cloudflare Managed robots.txt is ever disabled, re-add a
+#   User-agent: *
+#   Allow: /
+# group here (plus the overlapping bots above) so this file stands alone.
 
 User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
 Disallow: /
 
 User-agent: anthropic-ai
@@ -17,9 +19,6 @@ User-agent: Claude-Web
 Disallow: /
 
 User-agent: Omgilibot
-Disallow: /
-
-User-agent: Bytespider
 Disallow: /
 
 User-agent: PetalBot
@@ -41,9 +40,6 @@ User-agent: PerplexityBot
 Disallow: /
 
 User-agent: YouBot
-Disallow: /
-
-User-agent: Applebot-Extended
 Disallow: /
 
 User-agent: FacebookBot
