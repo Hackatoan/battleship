@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Battleship Online — Multiplayer Browser Game | Hackatoa</title>
-  <meta name="description" content="Play Battleship online against a friend. Classic naval strategy game in your browser — place your fleet and sink your opponent's ships. Free & instant." />
+  <title>Batalha Naval Online — Jogo de Navegador Multiplayer | Hackatoa</title>
+  <meta name="description" content="Jogue Batalha Naval online contra um amigo. Jogo clássico de estratégia naval no seu navegador — posicione sua frota e afunde os navios do seu oponente. Grátis e instantâneo." />
   <meta name="author" content="Preston Harris" />
   <meta name="keywords" content="battleship, online battleship, multiplayer battleship, browser game, naval strategy, Hackatoa" />
-  <meta property="og:title" content="Battleship Online — Multiplayer Browser Game" />
-  <meta property="og:description" content="Play Battleship online against a friend. Classic naval strategy game in your browser — place your fleet and sink your opponent's ships. Free & instant." />
+  <meta property="og:title" content="Batalha Naval Online — Jogo de Navegador Multiplayer" />
+  <meta property="og:description" content="Jogue Batalha Naval online contra um amigo. Jogo clássico de estratégia naval no seu navegador — posicione sua frota e afunde os navios do seu oponente. Grátis e instantâneo." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://battleship.hackatoa.com/" />
   <meta property="og:image" content="https://battleship.hackatoa.com/og.png" />
@@ -17,11 +17,11 @@
   <meta property="og:image:alt" content="Battleship Online — naval strategy browser game" />
   <meta property="og:site_name" content="Hackatoa" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Battleship Online — Multiplayer Browser Game" />
-  <meta name="twitter:description" content="Play Battleship online against a friend. Classic naval strategy game in your browser — place your fleet and sink your opponent's ships. Free & instant." />
+  <meta name="twitter:title" content="Batalha Naval Online — Jogo de Navegador Multiplayer" />
+  <meta name="twitter:description" content="Jogue Batalha Naval online contra um amigo. Jogo clássico de estratégia naval no seu navegador — posicione sua frota e afunde os navios do seu oponente. Grátis e instantâneo." />
   <meta name="twitter:image" content="https://battleship.hackatoa.com/og.png" />
   <meta name="twitter:site" content="@jhackatoa" />
-  <link rel="canonical" href="https://battleship.hackatoa.com/" />  <meta name="application-name" content="Hackatoa Games" />
+  <link rel="canonical" href="https://battleship.hackatoa.com/pt-br/" />  <meta name="application-name" content="Hackatoa Games" />
   <meta name="robots" content="index, follow" />  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <script type="application/ld+json">
 {
@@ -46,28 +46,43 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is Battleship Online free to play?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Battleship Online is completely free with no sign-up, no ads, and no download required. Just open the page and play in your browser." }
+      "name": "O Batalha Naval Online é gratuito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. É totalmente gratuito, sem cadastro, sem anúncios e sem necessidade de download — basta abrir a página e jogar."
+      }
     },
     {
       "@type": "Question",
-      "name": "Can I play Battleship online with a friend?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Choose Multiplayer, create a room, and share the room code or link with a friend. You play a live 2-player game against each other in real time." }
+      "name": "Posso jogar Batalha Naval online com um amigo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Escolha Multijogador, crie uma sala e compartilhe o código ou link da sala. Vocês jogam uma partida ao vivo para 2 jogadores em tempo real."
+      }
     },
     {
       "@type": "Question",
-      "name": "Do I need to download or install anything?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Battleship Online runs entirely in your web browser, so there is nothing to download or install on desktop or mobile." }
+      "name": "Preciso baixar ou instalar algo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O Batalha Naval Online roda inteiramente no seu navegador, então não há nada para baixar ou instalar no desktop ou celular."
+      }
     },
     {
       "@type": "Question",
-      "name": "Can I play Battleship against the computer?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Single-player mode lets you battle an AI opponent with Easy, Medium, and Hard difficulty levels." }
+      "name": "Posso jogar Batalha Naval contra o computador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O modo de um jogador permite batalhar contra um oponente de IA nos níveis de dificuldade Fácil, Médio e Difícil."
+      }
     },
     {
       "@type": "Question",
-      "name": "Does Battleship Online work on mobile?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The game is designed to work on phones and tablets as well as desktop browsers." }
+      "name": "O Batalha Naval Online funciona no celular?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. O jogo foi projetado para funcionar em celulares e tablets, bem como em navegadores de desktop."
+      }
     }
   ]
 }
@@ -75,7 +90,7 @@
   <style>
     body { padding-bottom: 50px; }
   </style>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 
   <!-- i18n:hreflang:start -->
   <link rel="alternate" hreflang="en" href="https://battleship.hackatoa.com/" />
@@ -91,9 +106,9 @@
 <body>
 <!-- i18n:switcher:start -->
 <nav aria-label="Language" style="position:fixed;top:8px;right:10px;z-index:300;font-size:12px;font-family:system-ui,-apple-system,sans-serif;background:rgba(10,22,40,.9);border:1px solid #1e4070;border-radius:999px;padding:5px 12px;display:flex;gap:9px;box-shadow:0 2px 10px rgba(0,0,0,.35);">
-  <a href="/" hreflang="en" aria-current="true" style="color:#fff;font-weight:700;text-decoration:none;">EN</a>
+  <a href="/" hreflang="en" style="color:#9fb6d0;text-decoration:none;">EN</a>
   <a href="/es/" hreflang="es" style="color:#9fb6d0;text-decoration:none;">ES</a>
-  <a href="/pt-br/" hreflang="pt-BR" style="color:#9fb6d0;text-decoration:none;">PT</a>
+  <a href="/pt-br/" hreflang="pt-BR" aria-current="true" style="color:#fff;font-weight:700;text-decoration:none;">PT</a>
   <a href="/fr/" hreflang="fr" style="color:#9fb6d0;text-decoration:none;">FR</a>
   <a href="/de/" hreflang="de" style="color:#9fb6d0;text-decoration:none;">DE</a>
   <a href="/vi/" hreflang="vi" style="color:#9fb6d0;text-decoration:none;">VI</a>
@@ -105,14 +120,14 @@
   <div id="screen-menu" class="screen active">
     <div class="logo">
       <div class="logo-icon">⚓</div>
-      <h1>BATTLESHIP</h1>
+      <h1>BATALHA NAVAL</h1>
     </div>
     <div class="menu-buttons">
-      <button class="btn btn-primary" onclick="startSinglePlayer()">VS Computer</button>
-      <button class="btn btn-secondary" onclick="showScreen('screen-mp-menu')">Multiplayer</button>
+      <button class="btn btn-primary" onclick="startSinglePlayer()">VS Computador</button>
+      <button class="btn btn-secondary" onclick="showScreen('screen-mp-menu')">Multijogador</button>
     </div>
     <div class="leaderboard-box">
-      <h3>🏆 Leaderboard</h3>
+      <h3>🏆 Ranking</h3>
       <table class="leaderboard">
         <thead><tr><th>#</th><th>Player</th><th>W</th><th>L</th><th>D</th></tr></thead>
         <tbody id="lb-body"><tr><td colspan="5">Loading…</td></tr></tbody>
@@ -122,41 +137,41 @@
 
   <!-- Multiplayer Menu -->
   <div id="screen-mp-menu" class="screen">
-    <h2>Multiplayer</h2>
+    <h2>Multijogador</h2>
     <div class="menu-buttons">
-      <input id="name-input" type="text" placeholder="Your nickname" maxlength="24" style="text-align:center;">
-      <button class="btn btn-primary" onclick="createRoom()">Create Room</button>
+      <input id="name-input" type="text" placeholder="Seu apelido" maxlength="24" style="text-align:center;">
+      <button class="btn btn-primary" onclick="createRoom()">Criar Sala</button>
       <div class="join-row">
-        <input id="room-input" type="text" placeholder="Room code" maxlength="6">
-        <button class="btn btn-secondary" onclick="joinRoom()">Join</button>
+        <input id="room-input" type="text" placeholder="Código da sala" maxlength="6">
+        <button class="btn btn-secondary" onclick="joinRoom()">Entrar</button>
       </div>
-      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Back</button>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Voltar</button>
     </div>
     <div id="mp-status" class="status-msg"></div>
     <div id="room-code-display" class="room-code hidden">
       Room: <span id="room-code-text"></span>
-      <button class="btn-copy" onclick="copyCode()">Copy Code</button>
-      <button class="btn-copy" onclick="copyLink()">Copy Link</button>
+      <button class="btn-copy" onclick="copyCode()">Copiar Código</button>
+      <button class="btn-copy" onclick="copyLink()">Copiar Link</button>
     </div>
   </div>
 
   <!-- Difficulty (single player) -->
   <div id="screen-difficulty" class="screen">
-    <h2>Difficulty</h2>
+    <h2>Dificuldade</h2>
     <div class="menu-buttons">
-      <button class="btn btn-primary" onclick="setDifficulty('easy')">Easy</button>
-      <button class="btn btn-secondary" onclick="setDifficulty('medium')">Medium</button>
-      <button class="btn btn-danger" onclick="setDifficulty('hard')">Hard</button>
-      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Back</button>
+      <button class="btn btn-primary" onclick="setDifficulty('easy')">Fácil</button>
+      <button class="btn btn-secondary" onclick="setDifficulty('medium')">Médio</button>
+      <button class="btn btn-danger" onclick="setDifficulty('hard')">Difícil</button>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Voltar</button>
     </div>
-    <p class="hint">Easy: random shots &nbsp;|&nbsp; Medium: hunt &amp; target &nbsp;|&nbsp; Hard: probability-based</p>
+    <p class="hint">Fácil: tiros aleatórios | Médio: caça e alvo | Difícil: baseado em probabilidade</p>
   </div>
 
   <!-- Ship Placement -->
   <div id="screen-placement" class="screen">
-    <h2>Place Your Ships</h2>
+    <h2>Posicione Seus Navios</h2>
     <p style="font-size:.82rem;color:#94a3b8;text-align:center;margin:-.25rem 0 .75rem;line-height:1.5;">
-      Select a ship from the list, then click the grid to place it. Use <strong>Rotate (R)</strong> to flip orientation. Place all ships, then hit <strong>Ready!</strong>
+      Selecione um navio da lista e clique na grade para posicioná-lo. Use Girar (R) para mudar a orientação. Posicione todos os navios e clique em Pronto!
     </p>
     <div class="placement-layout">
       <div class="ship-list" id="ship-list"></div>
@@ -172,9 +187,9 @@
           </div>
         </div>
         <div class="placement-controls">
-          <button class="btn btn-secondary" onclick="rotateShip()">Rotate (R)</button>
-          <button class="btn btn-ghost" onclick="randomPlacement()">Random</button>
-          <button class="btn btn-primary" id="ready-btn" onclick="confirmPlacement()" disabled>Ready!</button>
+          <button class="btn btn-secondary" onclick="rotateShip()">Girar (R)</button>
+          <button class="btn btn-ghost" onclick="randomPlacement()">Aleatório</button>
+          <button class="btn btn-primary" id="ready-btn" onclick="confirmPlacement()" disabled>Pronto!</button>
         </div>
       </div>
     </div>
@@ -184,7 +199,7 @@
   <div id="screen-waiting" class="screen">
     <div class="waiting-content">
       <div class="spinner"></div>
-      <p>Waiting for opponent...</p>
+      <p>Aguardando oponente...</p>
     </div>
   </div>
 
@@ -192,18 +207,18 @@
   <div id="screen-game" class="screen">
     <div class="game-header">
       <div class="player-info" id="my-info">
-        <span class="player-label">YOU</span>
+        <span class="player-label">VOCÊ</span>
         <div class="ship-status" id="my-ships"></div>
       </div>
       <div class="turn-indicator" id="turn-indicator">Your Turn</div>
       <div class="player-info" id="opp-info">
-        <span class="player-label">OPPONENT</span>
+        <span class="player-label">OPONENTE</span>
         <div class="ship-status" id="opp-ships"></div>
       </div>
     </div>
     <div class="game-boards">
       <div class="board-section">
-        <h3>Your Fleet</h3>
+        <h3>Sua Frota</h3>
         <div class="board-wrap">
           <div class="board-labels">
             <div class="corner"></div>
@@ -216,7 +231,7 @@
         </div>
       </div>
       <div class="board-section">
-        <h3>Enemy Waters</h3>
+        <h3>Águas Inimigas</h3>
         <div class="board-wrap">
           <div class="board-labels">
             <div class="corner"></div>
@@ -238,8 +253,8 @@
       <div class="result-icon" id="result-icon"></div>
       <h2 id="result-title"></h2>
       <p id="result-sub"></p>
-      <button class="btn btn-primary" onclick="playAgain()">Play Again</button>
-      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Main Menu</button>
+      <button class="btn btn-primary" onclick="playAgain()">Jogar Novamente</button>
+      <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Menu Principal</button>
     </div>
   </div>
   </main>
@@ -247,62 +262,51 @@
   <!-- SEO / informational content (always in the DOM, crawlable, shown below the game) -->
   <section class="seo-content">
     <div class="seo-inner">
-      <h2>Play Battleship Online — Free, No Download</h2>
-      <p>
-        <strong>Battleship Online</strong> is a free, browser-based version of the classic naval
-        strategy game. Hide your fleet on a 10&times;10 grid, then take turns firing at your
-        opponent's hidden ships until one fleet is sunk. Play solo against a smart
-        <strong>computer AI</strong> or challenge a friend to real-time
-        <strong>2-player online multiplayer</strong> — no download, no sign-up, and no ads. It runs
-        instantly on desktop and mobile.
-      </p>
-
-      <h3 class="seo-h">How to Play Battleship Online</h3>
+      <h2>Jogue Batalha Naval Online — Grátis, Sem Download</h2>
+      <p>Batalha Naval Online é uma versão gratuita para navegador do clássico jogo de estratégia naval. Esconda sua frota em uma grade 10×10 e reveze os disparos contra os navios escondidos do seu oponente até que uma frota seja afundada. Jogue sozinho contra uma IA inteligente ou desafie um amigo para o modo multijogador online em tempo real — sem download, sem cadastro e sem anúncios. Funciona instantaneamente no desktop e celular.</p>
+      <h3 class="seo-h">Como Jogar Batalha Naval Online</h3>
       <ol class="seo-list">
-        <li><strong>Pick a mode</strong> — battle the computer (Easy, Medium, or Hard) or start a multiplayer room to play with a friend.</li>
-        <li><strong>Place your fleet</strong> — position your five ships on the grid. Press <em>Rotate&nbsp;(R)</em> to flip a ship, or hit <em>Random</em> for an instant layout.</li>
-        <li><strong>Take turns firing</strong> — click a square on your opponent's grid to fire. A hit is marked in red, a miss in grey.</li>
-        <li><strong>Sink every ship</strong> — the first admiral to sink the entire enemy fleet wins the battle.</li>
+        <li>Escolha um modo — batalhe contra o computador (Fácil, Médio ou Difícil) ou crie uma sala multijogador para jogar com um amigo.</li>
+        <li>Posicione sua frota — coloque seus cinco navios na grade. Pressione Girar (R) para virar um navio ou clique em Aleatório para um layout instantâneo.</li>
+        <li>Reveze os disparos — clique em um quadrado na grade do seu oponente para atirar. Um acerto é marcado em vermelho, um erro em cinza.</li>
+        <li>Afunde todos os navios — o primeiro almirante a afundar toda a frota inimiga vence a batalha.</li>
       </ol>
-
-      <h3 class="seo-h">Game Features</h3>
+      <h3 class="seo-h">Recursos do Jogo</h3>
       <ul class="seo-list">
-        <li><strong>Single-player vs AI</strong> with three difficulty levels — from random shots to probability-based hunting.</li>
-        <li><strong>Online 2-player multiplayer</strong> — create a room and share the code or link to play a friend in real time.</li>
-        <li><strong>Free and instant</strong> — no account, no install, no download required.</li>
-        <li><strong>Plays anywhere</strong> — works in any modern browser on desktop, phone, or tablet.</li>
+        <li>Um jogador vs IA com três níveis de dificuldade — de tiros aleatórios a caça baseada em probabilidade.</li>
+        <li>Multijogador online para 2 jogadores — crie uma sala e compartilhe o código ou link para jogar com um amigo em tempo real.</li>
+        <li>Grátis e instantâneo — sem conta, sem instalação, sem necessidade de download.</li>
+        <li>Jogue em qualquer lugar — funciona em qualquer navegador moderno no desktop, celular ou tablet.</li>
       </ul>
-
-      <h3 class="seo-h">Frequently Asked Questions</h3>
+      <h3 class="seo-h">Perguntas Frequentes</h3>
       <div class="seo-faq">
-        <h4>Is Battleship Online free to play?</h4>
-        <p>Yes. It is completely free with no sign-up, no ads, and no download required — just open the page and play.</p>
-        <h4>Can I play Battleship online with a friend?</h4>
-        <p>Yes. Choose <em>Multiplayer</em>, create a room, and share the room code or link. You play a live 2-player game against each other in real time.</p>
-        <h4>Do I need to download or install anything?</h4>
-        <p>No. Battleship Online runs entirely in your web browser, so there is nothing to download or install on desktop or mobile.</p>
-        <h4>Can I play Battleship against the computer?</h4>
-        <p>Yes. Single-player mode lets you battle an AI opponent with Easy, Medium, and Hard difficulty levels.</p>
-        <h4>Does Battleship Online work on mobile?</h4>
-        <p>Yes. The game is designed to work on phones and tablets as well as desktop browsers.</p>
+        <h4>O Batalha Naval Online é gratuito?</h4>
+        <p>Sim. É totalmente gratuito, sem cadastro, sem anúncios e sem necessidade de download — basta abrir a página e jogar.</p>
+        <h4>Posso jogar Batalha Naval online com um amigo?</h4>
+        <p>Sim. Escolha Multijogador, crie uma sala e compartilhe o código ou link da sala. Vocês jogam uma partida ao vivo para 2 jogadores em tempo real.</p>
+        <h4>Preciso baixar ou instalar algo?</h4>
+        <p>Não. O Batalha Naval Online roda inteiramente no seu navegador, então não há nada para baixar ou instalar no desktop ou celular.</p>
+        <h4>Posso jogar Batalha Naval contra o computador?</h4>
+        <p>Sim. O modo de um jogador permite batalhar contra um oponente de IA nos níveis de dificuldade Fácil, Médio e Difícil.</p>
+        <h4>O Batalha Naval Online funciona no celular?</h4>
+        <p>Sim. O jogo foi projetado para funcionar em celulares e tablets, bem como em navegadores de desktop.</p>
       </div>
-
-      <p class="seo-cta"><a href="#" onclick="showScreen('screen-menu');window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Back to the game — start a battle</a></p>
+      <p class="seo-cta"><a href="#" onclick="showScreen('screen-menu');window.scrollTo({top:0,behavior:'smooth'});return false;">↑ Voltar para o jogo — começar uma batalha</a></p>
     </div>
   </section>
 
   <footer style="position:fixed;bottom:0;width:100%;background:rgba(10,22,40,0.95);border-top:1px solid #1e4070;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;font-size:13px;z-index:100;">
     <div style="display:flex;align-items:center;gap:16px;">
-      <span style="color:#6080a0;">Built by <a href="https://hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:700;text-decoration:none;">Hackatoa</a></span>
-      <a href="https://games.hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:600;text-decoration:none;font-size:12px;">All Games →</a>
-      <a href="https://github.com/Hackatoan/battleship" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Source Code</a>
+      <span style="color:#6080a0;">Desenvolvido por <a href="https://hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:700;text-decoration:none;">Hackatoa</a></span>
+      <a href="https://games.hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:600;text-decoration:none;font-size:12px;">Todos os Jogos →</a>
+      <a href="https://github.com/Hackatoan/battleship" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Código Fonte</a>
     </div>
-    <a href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener" style="background:#d0e8ff;color:#0a1628;padding:6px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid #00d4ff;">☕ Buy me a coffee</a>
+    <a href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener" style="background:#d0e8ff;color:#0a1628;padding:6px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid #00d4ff;">☕ Pague-me um café</a>
   </footer>
 
   <script src="/socket.io/socket.io.js"></script>
-  <script src="name.js"></script>
-  <script src="game.js"></script>
+  <script src="/name.js"></script>
+  <script src="/game.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1fb943269b344332804cfc907bf18ee5"}'></script><!-- End Cloudflare Web Analytics -->
 <script>
 /* ── THE VOLCANO PROTOCOL — Seal V (final) ── */
