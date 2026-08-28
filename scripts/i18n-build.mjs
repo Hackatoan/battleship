@@ -27,6 +27,7 @@ let base = readFileSync(join(ROOT, 'public/index.html'), 'utf8');
 base = base.replace(/\s*<!-- i18n:hreflang:start -->[\s\S]*?<!-- i18n:hreflang:end -->/g, '');
 base = base.replace(/\s*<!-- i18n:switcher:start -->[\s\S]*?<!-- i18n:switcher:end -->/g, '');
 base = base.replace(/\s*<!-- i18n:runtime:start -->[\s\S]*?<!-- i18n:runtime:end -->/g, '');
+base = base.replace(/\s*<!-- i18n:room-redirect:start -->[\s\S]*?<!-- i18n:room-redirect:end -->/g, '');
 
 // ---- shared fragments ----
 const hreflangBlock = () => {
@@ -78,8 +79,18 @@ const faqJsonLd = (s) => {
   return `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n  </script>`;
 };
 
+// Per-player rooms: a shared /?room=CODE link is locale-less. This early script
+// redirects the joiner to their OWN locale page (/<loc>/?room=CODE) based on
+// hk_lang (set on any page they've browsed) with a navigator.language fallback —
+// so two players in different languages each see the game in their own language.
+// It also records this page's locale as hk_lang for future visits. Guarded so the
+// correct-locale page never redirects again (no loop).
+const roomRedirect = (cur) =>
+  `\n  <!-- i18n:room-redirect:start -->\n  <script>\n  (function(){var L=${JSON.stringify(cur)},A=${JSON.stringify(LOCALES)};try{var p=new URLSearchParams(location.search);if(p.get('room')){var w='';try{w=localStorage.getItem('hk_lang')||'';}catch(e){}if(A.indexOf(w)<0){var n=(navigator.language||'en').toLowerCase();w=n.indexOf('pt')===0?'pt-br':(A.indexOf(n.slice(0,2))>=0?n.slice(0,2):'en');}if(w!==L){location.replace((w==='en'?'/':'/'+w+'/')+location.search+location.hash);return;}}try{localStorage.setItem('hk_lang',L);}catch(e){}}catch(e){}})();\n  </script>\n  <!-- i18n:room-redirect:end -->`;
+
 const injectHead = (html, cur) =>
-  html.replace('</head>', `${hreflangBlock()}\n</head>`)
+  html.replace('<head>', `<head>${roomRedirect(cur)}`)
+      .replace('</head>', `${hreflangBlock()}\n</head>`)
       .replace(/(<body[^>]*>)/, `$1${switcher(cur)}`);
 
 // inject the runtime string dictionary + a tiny t() helper before game.js so
