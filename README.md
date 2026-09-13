@@ -1,38 +1,42 @@
-# Battleship Online
+# Battleship
 
-![Battleship Online](https://battleship.hackatoa.com/og.svg)
+Multiplayer Battleship you can play online against a friend or an AI opponent.
 
-Classic naval strategy in your browser — place your fleet and hunt the enemy. Play solo vs AI or challenge a friend in real-time multiplayer.
+🔗 **Live:** [battleship.hackatoa.com](https://battleship.hackatoa.com)   ·   ☕ **Support:** [Buy Me a Coffee](https://buymeacoffee.com/hackatoa)
 
-**▶ Play at [battleship.hackatoa.com](https://battleship.hackatoa.com)**
+## Overview
+
+Classic Battleship in the browser. Play real-time multiplayer over WebSockets or take on an AI with three difficulty levels (random, hunt & target, probability-based). Includes a global leaderboard.
 
 ## Features
 
-- **vs AI** — three difficulty levels (Easy, Medium, Hard)
-  - Easy: random shots
-  - Medium: hunt/target mode — pursues hits
-  - Hard: probability-density map (finds high-value targets)
-- **Real-time multiplayer** — share a room link
-- Standard 10×10 board, 5 ships (Carrier, Battleship, Cruiser, Submarine, Destroyer)
-- No account or download required
+- Real-time online multiplayer + single-player vs AI (Easy / Medium / Hard)
+- Drag-free ship placement with keyboard `R` and touch double-tap to rotate
+- Global leaderboard (Postgres)
+- 6-language localization
 
-## How to play
+## Tech Stack
 
-1. Place your ships on the board
-2. Take turns calling shots — first to sink the enemy fleet wins!
+HTML · vanilla JS · Node.js (Express + Socket.IO) · PostgreSQL · Docker
 
-## Tech stack
-
-- Node.js + Express + Socket.io
-- Vanilla HTML/CSS/JS
-- Docker + GitHub Actions CI/CD (auto-deploys via Watchtower)
-
-## Self-hosting
+## Development
 
 ```bash
-docker run -p 3025:3025 ghcr.io/hackatoan/battleship:latest
+npm install
+npm start   # serves public/ + Socket.IO on PORT (default 3025)
 ```
+The leaderboard is optional — without `DATABASE_URL` set, the game runs with the leaderboard disabled.
+
+## Deployment
+
+Docker on the homelab games host; auto-deployed via GHCR + Watchtower.
+
+## Support
+
+If this project is useful to you, consider supporting development:
+
+☕ **[Buy Me a Coffee](https://buymeacoffee.com/hackatoa)**
 
 ---
 
-Part of [Hackatoa Games](https://games.hackatoa.com) · [Buy me a coffee](https://buymeacoffee.com/hackatoa)
+Part of the **[Hackatoa](https://hackatoa.com)** ecosystem — self-hosted apps, browser games, and bots. · [All repositories »](https://github.com/Hackatoan)
