@@ -46,14 +46,16 @@ io.on('connection', (socket) => {
   });
 
   socket.on('join_room', ({ code, name } = {}) => {
-    const room = rooms[code.toUpperCase()];
+    if (typeof code !== 'string' || !code) return socket.emit('join_error', 'Room not found');
+    const upperCode = code.toUpperCase();
+    const room = rooms[upperCode];
     if (!room) return socket.emit('join_error', 'Room not found');
     if (room.players.length >= 2) return socket.emit('join_error', 'Room is full');
     room.players.push(socket.id);
     room.names[socket.id] = db.cleanName(name);
-    socket.join(code.toUpperCase());
-    socket.emit('room_joined', { code: code.toUpperCase() });
-    io.to(code.toUpperCase()).emit('opponent_joined');
+    socket.join(upperCode);
+    socket.emit('room_joined', { code: upperCode });
+    io.to(upperCode).emit('opponent_joined');
   });
 
   socket.on('ships_placed', ({ code, board }) => {
@@ -71,12 +73,13 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on('attack', ({ code, row, col }) => {
+  socket.on('attack', ({ code, row, col } = {}) => {
+    if (!Number.isInteger(row) || !Number.isInteger(col) || row < 0 || row > 9 || col < 0 || col > 9) return;
     const room = rooms[code];
     if (!room || room.turn !== socket.id) return;
     const oppId = room.players.find(id => id !== socket.id);
     const board = room.boards[oppId];
-    if (room.hits[oppId][row][col]) return;
+    if (!board || !room.hits[oppId] || room.hits[oppId][row][col]) return;
 
     room.hits[oppId][row][col] = true;
     const cellVal = board[row][col];
