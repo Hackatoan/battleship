@@ -18,8 +18,31 @@ app.get('/api/leaderboard', async (_req, res) => {
 
 const rooms = {};
 
+// Expected fleet: shipId -> number of cells that ship must occupy.
+// Must match the SHIPS list in public/game.js.
+const SHIP_SIZES = { 1: 5, 2: 4, 3: 3, 4: 3, 5: 2 };
+
 function makeCode() {
   return Math.random().toString(36).substring(2, 8).toUpperCase();
+}
+
+// Reject anything the client sends as a "board" that isn't a well-formed
+// 10x10 grid containing exactly the expected fleet. Without this check a
+// client could submit a malformed shape (crashing the server the first time
+// it's indexed during an attack) or an empty/invalid board (guaranteeing it
+// can never be fully sunk, i.e. guaranteeing the sender can never lose).
+function isValidBoard(board) {
+  if (!Array.isArray(board) || board.length !== 10) return false;
+  const counts = {};
+  for (const row of board) {
+    if (!Array.isArray(row) || row.length !== 10) return false;
+    for (const cell of row) {
+      if (cell === 0) continue;
+      if (!Number.isInteger(cell) || !SHIP_SIZES[cell]) return false;
+      counts[cell] = (counts[cell] || 0) + 1;
+    }
+  }
+  return Object.keys(SHIP_SIZES).every(id => counts[id] === SHIP_SIZES[id]);
 }
 
 function checkSunk(board, shipId) {
@@ -58,9 +81,10 @@ io.on('connection', (socket) => {
     io.to(upperCode).emit('opponent_joined');
   });
 
-  socket.on('ships_placed', ({ code, board }) => {
+  socket.on('ships_placed', ({ code, board } = {}) => {
     const room = rooms[code];
     if (!room) return;
+    if (!isValidBoard(board)) return;
     room.boards[socket.id] = board;
     room.hits[socket.id] = Array.from({ length: 10 }, () => Array(10).fill(false));
     room.ready.add(socket.id);
