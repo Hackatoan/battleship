@@ -135,6 +135,9 @@ for (const loc of LOCALES.filter((l) => l !== 'en')) {
   // placeholders
   html = litReplace(html, `placeholder="${en.ui.nickname}"`, `placeholder="${t.ui.nickname}"`, 'ui.nickname');
   html = litReplace(html, `placeholder="${en.ui.roomCode}"`, `placeholder="${t.ui.roomCode}"`, 'ui.roomCode');
+  // aria-labels (screen-reader accessible names for the nickname/room inputs)
+  html = litReplace(html, `aria-label="${en.ui.nickname}"`, `aria-label="${t.ui.nickname}"`, 'ui.nickname (aria-label)');
+  html = litReplace(html, `aria-label="${en.ui.roomCode}"`, `aria-label="${t.ui.roomCode}"`, 'ui.roomCode (aria-label)');
   // footer
   html = litReplace(html, `>Built by <`, `>${t.footer.builtBy} <`, 'footer.builtBy');
   html = litReplace(html, `>${en.footer.allGames}<`, `>${t.footer.allGames}<`, 'footer.allGames');
