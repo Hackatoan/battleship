@@ -206,7 +206,7 @@ function initPlacement() {
   buildShipList();
   buildBoard('place-board', onPlaceCellClick, onPlaceCellHover, onPlaceBoardLeave);
   buildLabels('col-labels-place', 'row-labels-place');
-  document.getElementById('ready-btn').disabled = true;
+  setReadyEnabled(false);
 
   document.addEventListener('keydown', handleKey);
 }
@@ -318,7 +318,13 @@ function onPlaceCellClick(r, c) {
 
   const next = SHIPS.find(s => !state.placedShips.has(s.id));
   if (next) selectShip(next.id);
-  else document.getElementById('ready-btn').disabled = false;
+  else setReadyEnabled(true);
+}
+
+function setReadyEnabled(enabled) {
+  const btn = document.getElementById('ready-btn');
+  btn.disabled = !enabled;
+  btn.title = enabled ? '' : 'Place all your ships on the grid to enable';
 }
 
 function getShipCells(r, c, size, horiz) {
@@ -352,7 +358,7 @@ function randomPlacement() {
   });
   renderPlacementBoard();
   state.selectedShip = null;
-  document.getElementById('ready-btn').disabled = false;
+  setReadyEnabled(true);
 }
 
 function renderPlacementBoard() {
