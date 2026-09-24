@@ -128,10 +128,10 @@
   <div id="screen-mp-menu" class="screen">
     <h2>Multiplayer</h2>
     <div class="menu-buttons">
-      <input id="name-input" type="text" placeholder="Your nickname" maxlength="24" style="text-align:center;">
+      <input id="name-input" type="text" placeholder="Your nickname" aria-label="Your nickname" maxlength="24" style="text-align:center;">
       <button class="btn btn-primary" onclick="createRoom()">Create Room</button>
       <div class="join-row">
-        <input id="room-input" type="text" placeholder="Room code" maxlength="6">
+        <input id="room-input" type="text" placeholder="Room code" aria-label="Room code" maxlength="6">
         <button class="btn btn-secondary" onclick="joinRoom()">Join</button>
       </div>
       <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Back</button>

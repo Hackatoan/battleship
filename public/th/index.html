@@ -143,10 +143,10 @@
   <div id="screen-mp-menu" class="screen">
     <h2>เล่นหลายคน</h2>
     <div class="menu-buttons">
-      <input id="name-input" type="text" placeholder="ชื่อเล่นของคุณ" maxlength="24" style="text-align:center;">
+      <input id="name-input" type="text" placeholder="ชื่อเล่นของคุณ" aria-label="ชื่อเล่นของคุณ" maxlength="24" style="text-align:center;">
       <button class="btn btn-primary" onclick="createRoom()">สร้างห้อง</button>
       <div class="join-row">
-        <input id="room-input" type="text" placeholder="รหัสห้อง" maxlength="6">
+        <input id="room-input" type="text" placeholder="รหัสห้อง" aria-label="รหัสห้อง" maxlength="6">
         <button class="btn btn-secondary" onclick="joinRoom()">เข้าร่วม</button>
       </div>
       <button class="btn btn-ghost" onclick="showScreen('screen-menu')">กลับ</button>
