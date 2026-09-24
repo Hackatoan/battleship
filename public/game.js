@@ -12,6 +12,12 @@ const COLS = 'ABCDEFGHIJ';
 const DOUBLE_TAP_MS = 350;
 let lastShipTap = { shipId: null, at: 0 };
 
+// Cache of cell elements per board id, populated by buildBoard(), so getCell()
+// is an O(1) array lookup instead of a DOM query. Boards are rebuilt (not just
+// re-rendered) on every placement/game init, so the cache is always refreshed
+// before any render that reads from it.
+const boardCellCache = {};
+
 // ── State ─────────────────────────────────────────────────────────────────────
 let state = {
   mode: null,          // 'single' | 'multi'
@@ -634,6 +640,8 @@ function markSunkOnOppBoard(shipId) {
 function buildBoard(id, onClick, onHover, onLeave, noClick) {
   const board = document.getElementById(id);
   board.innerHTML = '';
+  const cache = Array.from({ length: 10 }, () => new Array(10));
+  boardCellCache[id] = cache;
   for (let r = 0; r < 10; r++) {
     for (let c = 0; c < 10; c++) {
       const cell = document.createElement('div');
@@ -646,6 +654,7 @@ function buildBoard(id, onClick, onHover, onLeave, noClick) {
         const wrap = document.getElementById(id);
         wrap.addEventListener('mouseleave', onLeave);
       }
+      cache[r][c] = cell;
       board.appendChild(cell);
     }
   }
@@ -669,7 +678,7 @@ function buildLabels(colId, rowId) {
 }
 
 function getCell(boardId, r, c) {
-  return document.querySelector(`#${boardId} [data-r="${r}"][data-c="${c}"]`);
+  return boardCellCache[boardId]?.[r]?.[c];
 }
 
 // ── Result ────────────────────────────────────────────────────────────────────
