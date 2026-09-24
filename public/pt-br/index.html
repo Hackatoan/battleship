@@ -143,10 +143,10 @@
   <div id="screen-mp-menu" class="screen">
     <h2>Multijogador</h2>
     <div class="menu-buttons">
-      <input id="name-input" type="text" placeholder="Seu apelido" maxlength="24" style="text-align:center;">
+      <input id="name-input" type="text" placeholder="Seu apelido" aria-label="Seu apelido" maxlength="24" style="text-align:center;">
       <button class="btn btn-primary" onclick="createRoom()">Criar Sala</button>
       <div class="join-row">
-        <input id="room-input" type="text" placeholder="Código da sala" maxlength="6">
+        <input id="room-input" type="text" placeholder="Código da sala" aria-label="Código da sala" maxlength="6">
         <button class="btn btn-secondary" onclick="joinRoom()">Entrar</button>
       </div>
       <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Voltar</button>

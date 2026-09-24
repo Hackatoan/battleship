@@ -143,10 +143,10 @@
   <div id="screen-mp-menu" class="screen">
     <h2>Mehrspieler</h2>
     <div class="menu-buttons">
-      <input id="name-input" type="text" placeholder="Dein Nickname" maxlength="24" style="text-align:center;">
+      <input id="name-input" type="text" placeholder="Dein Nickname" aria-label="Dein Nickname" maxlength="24" style="text-align:center;">
       <button class="btn btn-primary" onclick="createRoom()">Raum erstellen</button>
       <div class="join-row">
-        <input id="room-input" type="text" placeholder="Raum-Code" maxlength="6">
+        <input id="room-input" type="text" placeholder="Raum-Code" aria-label="Raum-Code" maxlength="6">
         <button class="btn btn-secondary" onclick="joinRoom()">Beitreten</button>
       </div>
       <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Zurück</button>
