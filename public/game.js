@@ -548,17 +548,23 @@ function updateTurnDisplay() {
   el.textContent = state.myTurn ? T('yourTurn') : T('oppTurn');
   el.classList.toggle('opponent-turn', !state.myTurn);
 
-  document.querySelectorAll('#opp-board .cell').forEach(cell => {
-    const r = parseInt(cell.dataset.r), c = parseInt(cell.dataset.c);
-    const alreadyHit = state.oppHits[r][c] !== false;
-    if (!alreadyHit && state.myTurn && !state.gameOver) {
-      cell.classList.add('attackable');
-      cell.classList.remove('no-hover');
-    } else {
-      cell.classList.remove('attackable');
-      cell.classList.add('no-hover');
+  // Use the cached cell elements (see boardCellCache) instead of re-querying
+  // the DOM for all 100 cells and parsing their dataset every turn change.
+  const cache = boardCellCache['opp-board'];
+  if (!cache) return;
+  for (let r = 0; r < 10; r++) {
+    for (let c = 0; c < 10; c++) {
+      const cell = cache[r][c];
+      const alreadyHit = state.oppHits[r][c] !== false;
+      if (!alreadyHit && state.myTurn && !state.gameOver) {
+        cell.classList.add('attackable');
+        cell.classList.remove('no-hover');
+      } else {
+        cell.classList.remove('attackable');
+        cell.classList.add('no-hover');
+      }
     }
-  });
+  }
 }
 
 function onOppCellClick(r, c) {
