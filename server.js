@@ -18,6 +18,12 @@ app.get('/api/leaderboard', async (_req, res) => {
 
 const rooms = {};
 
+// Hard cap on concurrent rooms. Without this, a single connection can call
+// create_room in a loop and grow `rooms` without bound — each entry holds
+// two 10x10 board/hit arrays, so this is a real memory-exhaustion DoS, not
+// just theoretical. Comfortably above any real simultaneous-match count.
+const MAX_ROOMS = 1000;
+
 // Expected fleet: shipId -> number of cells that ship must occupy.
 // Must match the SHIPS list in public/game.js.
 const SHIP_SIZES = { 1: 5, 2: 4, 3: 3, 4: 3, 5: 2 };
@@ -61,6 +67,9 @@ function checkWin(board) {
 
 io.on('connection', (socket) => {
   socket.on('create_room', (payload = {}) => {
+    if (Object.keys(rooms).length >= MAX_ROOMS) {
+      return socket.emit('join_error', 'Server is full — try again shortly');
+    }
     const code = makeCode();
     rooms[code] = { players: [socket.id], names: {}, boards: {}, hits: {}, ready: new Set(), turn: null };
     rooms[code].names[socket.id] = db.cleanName(payload && payload.name);
@@ -132,11 +141,14 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
+    // A socket can be a player in more than one room (e.g. it called
+    // create_room several times without ever being joined). Sweep every
+    // room, not just the first match, or the rest leak for the life of
+    // the process — see MAX_ROOMS above for why that matters.
     for (const [code, room] of Object.entries(rooms)) {
       if (room.players.includes(socket.id)) {
         io.to(code).emit('opponent_disconnected');
         delete rooms[code];
-        break;
       }
     }
   });
