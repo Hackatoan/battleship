@@ -136,7 +136,7 @@
       </div>
       <button class="btn btn-ghost" onclick="showScreen('screen-menu')">Back</button>
     </div>
-    <div id="mp-status" class="status-msg"></div>
+    <div id="mp-status" class="status-msg" role="status" aria-live="polite"></div>
     <div id="room-code-display" class="room-code hidden">
       Room: <span id="room-code-text"></span>
       <button class="btn-copy" onclick="copyCode()">Copy Code</button>
@@ -199,7 +199,7 @@
         <span class="player-label">YOU</span>
         <div class="ship-status" id="my-ships"></div>
       </div>
-      <div class="turn-indicator" id="turn-indicator">Your Turn</div>
+      <div class="turn-indicator" id="turn-indicator" role="status" aria-live="polite">Your Turn</div>
       <div class="player-info" id="opp-info">
         <span class="player-label">OPPONENT</span>
         <div class="ship-status" id="opp-ships"></div>
@@ -246,7 +246,7 @@
         </div>
       </div>
     </div>
-    <div class="game-log" id="game-log"></div>
+    <div class="game-log" id="game-log" role="log" aria-live="polite"></div>
   </div>
   </main>
 
