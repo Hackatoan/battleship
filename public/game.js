@@ -231,7 +231,17 @@ function buildShipList() {
     const el = document.createElement('div');
     el.className = 'ship-item';
     el.id = `ship-item-${ship.id}`;
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-pressed', 'false');
+    el.setAttribute('aria-label', `${ship.name}, ${ship.size} cells`);
     el.onclick = () => selectShip(ship.id);
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectShip(ship.id);
+      }
+    });
     el.addEventListener('pointerup', e => handleShipPointerUp(e, ship.id));
     el.innerHTML = `
       <div class="ship-blocks">${'<div class="ship-block"></div>'.repeat(ship.size)}</div>
@@ -243,11 +253,26 @@ function buildShipList() {
 function selectShip(id) {
   if (state.placedShips.has(id)) return;
   state.selectedShip = SHIPS.find(s => s.id === id);
-  document.querySelectorAll('.ship-item').forEach(el => el.classList.remove('selected'));
+  document.querySelectorAll('.ship-item').forEach(el => {
+    el.classList.remove('selected');
+    el.setAttribute('aria-pressed', 'false');
+  });
   const el = document.getElementById(`ship-item-${id}`);
-  if (el) el.classList.add('selected');
+  if (el) {
+    el.classList.add('selected');
+    el.setAttribute('aria-pressed', 'true');
+  }
   updateOrientationIndicator();
   clearPreview();
+}
+
+function markShipItemPlaced(id) {
+  const el = document.getElementById(`ship-item-${id}`);
+  if (!el) return;
+  el.classList.add('placed');
+  el.setAttribute('tabindex', '-1');
+  el.setAttribute('aria-disabled', 'true');
+  el.setAttribute('aria-pressed', 'false');
 }
 
 function rotateShip() {
@@ -326,7 +351,7 @@ function onPlaceCellClick(r, c) {
   clearPreview();
 
   state.placedShips.add(ship.id);
-  document.getElementById(`ship-item-${ship.id}`).classList.add('placed');
+  markShipItemPlaced(ship.id);
   state.selectedShip = null;
   document.querySelectorAll('.ship-item').forEach(el => el.classList.remove('selected'));
 
@@ -368,7 +393,7 @@ function randomPlacement() {
         placed = true;
       }
     }
-    document.getElementById(`ship-item-${ship.id}`).classList.add('placed');
+    markShipItemPlaced(ship.id);
   });
   renderPlacementBoard();
   state.selectedShip = null;
