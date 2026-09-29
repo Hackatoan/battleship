@@ -18,6 +18,12 @@ let lastShipTap = { shipId: null, at: 0 };
 // before any render that reads from it.
 const boardCellCache = {};
 
+// Cells currently showing a ship-placement preview highlight, tracked directly
+// so clearPreview() can reset just those elements instead of re-querying the
+// DOM for '.ship-preview, .ship-invalid' on every mouseenter (fires up to 100x
+// per pass over the placement board).
+let previewCells = [];
+
 // ── State ─────────────────────────────────────────────────────────────────────
 let state = {
   mode: null,          // 'single' | 'multi'
@@ -208,6 +214,7 @@ function initPlacement() {
   state.selectedShip = null;
   state.horizontal = true;
   lastShipTap = { shipId: null, at: 0 };
+  previewCells = [];
 
   buildShipList();
   buildBoard('place-board', onPlaceCellClick, onPlaceCellHover, onPlaceBoardLeave);
@@ -296,12 +303,13 @@ function showPreview(r, c) {
   cells.forEach(([rr, cc]) => {
     const cell = getCell('place-board', rr, cc);
     cell.classList.add(valid ? 'ship-preview' : 'ship-invalid');
+    previewCells.push(cell);
   });
 }
 
 function clearPreview() {
-  document.querySelectorAll('#place-board .ship-preview, #place-board .ship-invalid')
-    .forEach(el => { el.classList.remove('ship-preview', 'ship-invalid'); });
+  previewCells.forEach(cell => cell.classList.remove('ship-preview', 'ship-invalid'));
+  previewCells = [];
 }
 
 function onPlaceCellClick(r, c) {
