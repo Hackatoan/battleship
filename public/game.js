@@ -1,5 +1,32 @@
 const socket = io();
 
+if (window.PlayerAccount) window.PlayerAccount.mountWidget('#hk-account');
+
+// Best-effort idToken for a signed-in player, for actions the user triggers
+// directly (create/join room) — by the time someone clicks, Firebase's
+// persisted-session check has essentially always already resolved.
+async function getIdToken() {
+  return window.PlayerAccount ? await window.PlayerAccount.getIdToken() : null;
+}
+
+// Same, but bounded and used only for the auto-join-from-URL path below,
+// which fires on page load before Firebase's persisted-session check is
+// guaranteed to have resolved yet -- wait briefly for the first auth
+// callback so a returning signed-in player's very first join carries their
+// idToken instead of joining anonymously and only linking on their next game.
+async function getInitialIdToken() {
+  if (!window.PlayerAccount) return null;
+  return Promise.race([
+    new Promise((resolve) => {
+      const unsub = window.PlayerAccount.onAuthChange(async (user) => {
+        unsub();
+        resolve(user ? await window.PlayerAccount.getIdToken() : null);
+      });
+    }),
+    new Promise((resolve) => setTimeout(() => resolve(null), 1500)),
+  ]);
+}
+
 // ── Constants ────────────────────────────────────────────────────────────────
 const SHIPS = [
   { id: 1, name: 'Carrier',    size: 5 },
@@ -84,7 +111,9 @@ window.addEventListener('DOMContentLoaded', () => {
     showScreen('screen-mp-menu');
     document.getElementById('room-input').value = room.toUpperCase();
     document.getElementById('mp-status').textContent = T('joiningRoom', { code: room.toUpperCase() });
-    socket.emit('join_room', { code: room.toUpperCase(), name: currentName() });
+    getInitialIdToken().then((idToken) => {
+      socket.emit('join_room', { code: room.toUpperCase(), name: currentName(), idToken });
+    });
   }
 });
 
@@ -123,14 +152,16 @@ function setDifficulty(d) {
   showScreen('screen-placement');
 }
 
-function createRoom() {
-  socket.emit('create_room', { name: currentName() });
+async function createRoom() {
+  const idToken = await getIdToken();
+  socket.emit('create_room', { name: currentName(), idToken });
 }
 
-function joinRoom() {
+async function joinRoom() {
   const code = document.getElementById('room-input').value.trim().toUpperCase();
   if (!code) return;
-  socket.emit('join_room', { code, name: currentName() });
+  const idToken = await getIdToken();
+  socket.emit('join_room', { code, name: currentName(), idToken });
 }
 
 function copyCode() {

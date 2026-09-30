@@ -302,12 +302,16 @@
       <span style="color:#6080a0;">Built by <a href="https://hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:700;text-decoration:none;">Hackatoa</a></span>
       <a href="https://games.hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:600;text-decoration:none;font-size:12px;">All Games →</a>
       <a href="https://github.com/Hackatoan/battleship" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Source Code</a> <a href="https://github.com/Hackatoan/battleship/issues/new" target="_blank" rel="noopener" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Report an issue</a>
+      <span id="hk-account" class="hk-account-row"></span>
     </div>
     <a href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener" style="background:#d0e8ff;color:#0a1628;padding:6px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid #00d4ff;">☕ Buy me a coffee</a>
   </footer>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="name.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="account.js"></script>
   <!-- i18n:runtime:start -->
 <script>
 window.__I18N__ = {"ships":{"1":"Carrier","2":"Battleship","3":"Cruiser","4":"Submarine","5":"Destroyer"},"yourTurn":"Your Turn","oppTurn":"Opponent's Turn","victory":"VICTORY!","defeat":"DEFEAT","wonSub":"You sunk all enemy ships!","lostSub":"Your fleet has been destroyed.","copied":"Copied!","copyCode":"Copy Code","copyLink":"Copy Link","joiningRoom":"Joining room {code}…","waitingJoin":"Waiting for opponent to join…","oppReady":"Opponent is ready!","oppDisconnected":"Opponent disconnected.","youSunkTheir":"You sunk their {ship}!","theySunkYour":"They sunk your {ship}!","youHit":"You hit {cell}","youMissed":"You missed {cell}","oppHit":"Opponent hit {cell}","oppMissed":"Opponent missed {cell}"};
