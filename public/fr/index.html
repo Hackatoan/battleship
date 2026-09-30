@@ -306,12 +306,16 @@
       <span style="color:#6080a0;">Créé par <a href="https://hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:700;text-decoration:none;">Hackatoa</a></span>
       <a href="https://games.hackatoa.com" target="_blank" rel="noopener" style="color:#00d4ff;font-weight:600;text-decoration:none;font-size:12px;">Tous les jeux →</a>
       <a href="https://github.com/Hackatoan/battleship" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Code source</a> <a href="https://github.com/Hackatoan/battleship/issues/new" target="_blank" rel="noopener" target="_blank" rel="noopener" style="color:#6080a0;font-size:12px;text-decoration:none;">Report an issue</a>
+      <span id="hk-account" class="hk-account-row"></span>
     </div>
     <a href="https://buymeacoffee.com/hackatoa" target="_blank" rel="noopener" style="background:#d0e8ff;color:#0a1628;padding:6px 14px;border-radius:999px;font-weight:700;font-size:12px;text-decoration:none;border:1px solid #00d4ff;">☕ Offrez-moi un café</a>
   </footer>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="/name.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="account.js"></script>
   <!-- i18n:runtime:start -->
 <script>
 window.__I18N__ = {"ships":{"1":"Porte-avions","2":"Cuirassé","3":"Croiseur","4":"Sous-marin","5":"Torpilleur"},"yourTurn":"À vous de jouer","oppTurn":"Tour de l'adversaire","victory":"VICTOIRE !","defeat":"DÉFAITE","wonSub":"Vous avez coulé tous les navires ennemis !","lostSub":"Votre flotte a été détruite.","copied":"Copié !","copyCode":"Copier le code","copyLink":"Copier le lien","joiningRoom":"Rejoint la salle {code}…","waitingJoin":"En attente de l'adversaire…","oppReady":"L'adversaire est prêt !","oppDisconnected":"L'adversaire s'est déconnecté.","youSunkTheir":"Vous avez coulé son {ship} !","theySunkYour":"Il a coulé votre {ship} !","youHit":"Touché en {cell}","youMissed":"Manqué en {cell}","oppHit":"L'adversaire a touché {cell}","oppMissed":"L'adversaire a manqué {cell}"};

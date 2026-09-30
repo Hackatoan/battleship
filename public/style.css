@@ -291,3 +291,17 @@ table.leaderboard tr.lb-me { color: var(--accent); font-weight: 700; }
   .seo-content { padding: 40px 18px 90px; }
   .seo-inner h2 { font-size: 20px; }
 }
+
+/* Account-linking widget (public/account.js) — deliberately no colors here,
+   it inherits the page's own .btn/.btn-ghost styling so it reads as part
+   of the site instead of a floating overlay. */
+.hk-account-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.hk-account-row button {
+  padding: 4px 10px;
+  font-size: 12px;
+}
