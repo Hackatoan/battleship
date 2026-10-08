@@ -182,6 +182,7 @@ socket.on('room_created', ({ code }) => {
 });
 
 socket.on('join_error', (msg) => {
+  if (window.SFX) SFX.play('error');
   document.getElementById('mp-status').textContent = msg;
 });
 
@@ -193,6 +194,7 @@ socket.on('room_joined', ({ code }) => {
 });
 
 socket.on('opponent_joined', () => {
+  if (window.SFX) SFX.play('join');
   initPlacement();
   showScreen('screen-placement');
 });
@@ -206,6 +208,7 @@ socket.on('waiting_for_opponent', () => {
 });
 
 socket.on('game_start', ({ firstTurn }) => {
+  if (window.SFX) SFX.play('turn');
   state.myTurn = (firstTurn === socket.id || firstTurn === 'ai');
   initGame();
   showScreen('screen-game');
@@ -380,6 +383,7 @@ function onPlaceCellClick(r, c) {
     getCell('place-board', rr, cc).classList.add('ship');
   });
   clearPreview();
+  if (window.SFX) SFX.play('place');
 
   state.placedShips.add(ship.id);
   markShipItemPlaced(ship.id);
@@ -754,6 +758,7 @@ function getCell(boardId, r, c) {
 // ── Result ────────────────────────────────────────────────────────────────────
 function showResult(won) {
   state.gameOver = true;
+  if (window.SFX) setTimeout(() => SFX.play(won ? 'win' : 'lose'), 500);
   updateTurnDisplay();
   const resultTitle = won ? T('victory') : T('defeat');
   const turnIndicator = document.getElementById('turn-indicator');
@@ -786,6 +791,7 @@ function playAgain() {
 
 // ── Log ───────────────────────────────────────────────────────────────────────
 function logEntry(msg, cls) {
+  if (window.SFX && (cls === 'hit' || cls === 'miss' || cls === 'sunk')) SFX.play(cls);
   const log = document.getElementById('game-log');
   const entry = document.createElement('div');
   entry.className = 'log-entry ' + (cls || '');
