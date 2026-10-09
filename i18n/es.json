@@ -2,9 +2,9 @@
   "htmlLang": "es",
   "gameName": "Batalla Naval",
   "logoTitle": "BATALLA NAVAL",
-  "title": "Batalla Naval Online — Juego de Navegador Multijugador | Hackatoa",
-  "description": "Juega a la Batalla Naval online contra un amigo. El clásico juego de estrategia naval en tu navegador: coloca tu flota y hunde los barcos de tu oponente. Gratis e instantáneo.",
-  "ogTitle": "Batalla Naval Online — Juego de Navegador Multijugador",
+  "title": "Batalla Naval Online — Juega Gratis contra un Amigo o la Computadora | Hackatoa",
+  "description": "Juega a la Batalla Naval online gratis, sin registro ni descargas. Enfréntate a un amigo en tiempo real o desafía a la computadora. Coloca tu flota y hunde todos los barcos enemigos.",
+  "ogTitle": "Batalla Naval Online — Juega Gratis contra un Amigo o la Computadora",
   "ui": {
     "vsComputer": "VS Computadora",
     "multiplayer": "Multijugador",
