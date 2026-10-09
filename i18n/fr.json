@@ -2,9 +2,9 @@
   "htmlLang": "fr",
   "gameName": "Bataille Navale",
   "logoTitle": "BATAILLE NAVALE",
-  "title": "Bataille Navale en ligne — Jeu multijoueur sur navigateur | Hackatoa",
-  "description": "Jouez à la Bataille Navale en ligne contre un ami. Jeu de stratégie navale classique dans votre navigateur — placez votre flotte et coulez les navires adverses. Gratuit et instantané.",
-  "ogTitle": "Bataille Navale en ligne — Jeu multijoueur sur navigateur",
+  "title": "Bataille Navale en ligne — Jouez gratuitement contre un ami ou l'ordinateur | Hackatoa",
+  "description": "Jouez à la Bataille Navale en ligne gratuitement, sans inscription ni téléchargement. Affrontez un ami en temps réel ou défiez l'ordinateur. Placez votre flotte et coulez chaque navire ennemi.",
+  "ogTitle": "Bataille Navale en ligne — Jouez gratuitement contre un ami ou l'ordinateur",
   "ui": {
     "vsComputer": "Contre l'ordinateur",
     "multiplayer": "Multijoueur",
