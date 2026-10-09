@@ -8,9 +8,9 @@
   "htmlLang": "en",
   "gameName": "Battleship",
   "logoTitle": "BATTLESHIP",
-  "title": "Battleship Online — Multiplayer Browser Game | Hackatoa",
-  "description": "Play Battleship online against a friend. Classic naval strategy game in your browser — place your fleet and sink your opponent's ships. Free & instant.",
-  "ogTitle": "Battleship Online — Multiplayer Browser Game",
+  "title": "Battleship Game Online — Play Free vs Friend or Computer | Hackatoa",
+  "description": "Play Battleship online for free — no sign-up, no download. Battle a friend in real time or take on the computer. Place your fleet and sink every enemy ship.",
+  "ogTitle": "Battleship Game Online — Play Free vs Friend or Computer",
   "ui": {
     "vsComputer": "VS Computer",
     "multiplayer": "Multiplayer",
