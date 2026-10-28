@@ -64,6 +64,7 @@ h3 { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: upp
 .btn-danger { background: var(--danger); color: #fff; }
 .btn-danger:hover { background: #ff6666; }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 .menu-buttons { display: flex; flex-direction: column; gap: 12px; align-items: center; }
 
@@ -73,6 +74,7 @@ h3 { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: upp
   border-radius: 4px; color: var(--text); font-size: 18px; font-weight: 700;
   letter-spacing: 4px; text-transform: uppercase; width: 140px; text-align: center;
 }
+.join-row input:focus-visible, input[type="text"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .join-row .btn { width: auto; padding: 14px 20px; }
 
 .status-msg { margin-top: 16px; color: var(--accent); font-size: 14px; min-height: 20px; }
@@ -87,6 +89,7 @@ h3 { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: upp
   padding: 4px 10px; border-radius: 3px; cursor: pointer; font-size: 12px; letter-spacing: 1px;
 }
 .btn-copy:hover { background: var(--accent); color: #000; }
+.btn-copy:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 .hint { font-size: 12px; color: var(--text-dim); margin-top: 16px; text-align: center; }
 
@@ -98,6 +101,7 @@ h3 { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: upp
   background: var(--surface); border: 1px solid var(--border); border-radius: 4px;
   cursor: pointer; transition: all 0.15s; touch-action: manipulation;
 }
+.ship-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .ship-item.selected { border-color: var(--accent); background: var(--surface2); }
 .ship-item.selected::after {
   content: attr(data-orientation); margin-left: auto; color: var(--accent);
@@ -305,3 +309,6 @@ table.leaderboard tr.lb-me { color: var(--accent); font-weight: 700; }
   padding: 4px 10px;
   font-size: 12px;
 }
+
+/* Language switcher and other inline-styled buttons */
+#lang-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
