@@ -12,6 +12,7 @@ Classic Battleship in the browser. Play real-time multiplayer over WebSockets or
 
 - Real-time online multiplayer + single-player vs AI (Easy / Medium / Hard)
 - Drag-free ship placement with keyboard `R` and touch double-tap to rotate
+- Post-game accuracy stats (shots, hits, hit %)
 - Global leaderboard (Postgres)
 - 6-language localization
 

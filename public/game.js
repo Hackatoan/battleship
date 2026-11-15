@@ -769,10 +769,24 @@ function showResult(won) {
   document.getElementById('result-sub').textContent = won
     ? T('wonSub')
     : T('lostSub');
+  document.getElementById('result-stats').textContent = shotStatsText();
   document.getElementById('result-title').style.color = won ? 'var(--accent)' : 'var(--danger)';
   const panel = document.getElementById('result-panel');
   panel.hidden = false;
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Post-game accuracy line, derived from the cells I attacked this game.
+function shotStatsText() {
+  let shots = 0, hits = 0;
+  for (const row of state.oppHits || []) {
+    for (const v of row) {
+      if (v === 'hit') { shots++; hits++; }
+      else if (v === 'miss') shots++;
+    }
+  }
+  const acc = shots ? Math.round((hits / shots) * 100) : 0;
+  return T('resultStats', { shots, hits, acc });
 }
 
 function hideResult() {

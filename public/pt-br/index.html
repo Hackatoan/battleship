@@ -226,6 +226,7 @@
         <div>
           <h2 id="result-title"></h2>
           <p id="result-sub"></p>
+          <p id="result-stats"></p>
         </div>
       </div>
       <div class="result-actions">
@@ -321,7 +322,7 @@
   <script src="account.js"></script>
   <!-- i18n:runtime:start -->
 <script>
-window.__I18N__ = {"ships":{"1":"Porta-aviões","2":"Encouraçado","3":"Cruzador","4":"Submarino","5":"Contratorpedeiro"},"yourTurn":"Sua Vez","oppTurn":"Vez do Oponente","victory":"VITÓRIA!","defeat":"DERROTA","wonSub":"Você afundou todos os navios inimigos!","lostSub":"Sua frota foi destruída.","copied":"Copiado!","copyCode":"Copiar Código","copyLink":"Copiar Link","joiningRoom":"Entrando na sala {code}…","waitingJoin":"Aguardando oponente entrar…","oppReady":"Oponente está pronto!","oppDisconnected":"Oponente desconectado.","youSunkTheir":"Você afundou o {ship} deles!","theySunkYour":"Eles afundaram seu {ship}!","youHit":"Você acertou {cell}","youMissed":"Você errou {cell}","oppHit":"Oponente acertou {cell}","oppMissed":"Oponente errou {cell}"};
+window.__I18N__ = {"ships":{"1":"Porta-aviões","2":"Encouraçado","3":"Cruzador","4":"Submarino","5":"Contratorpedeiro"},"yourTurn":"Sua Vez","oppTurn":"Vez do Oponente","victory":"VITÓRIA!","defeat":"DERROTA","wonSub":"Você afundou todos os navios inimigos!","lostSub":"Sua frota foi destruída.","copied":"Copiado!","copyCode":"Copiar Código","copyLink":"Copiar Link","joiningRoom":"Entrando na sala {code}…","waitingJoin":"Aguardando oponente entrar…","oppReady":"Oponente está pronto!","oppDisconnected":"Oponente desconectado.","youSunkTheir":"Você afundou o {ship} deles!","theySunkYour":"Eles afundaram seu {ship}!","youHit":"Você acertou {cell}","youMissed":"Você errou {cell}","oppHit":"Oponente acertou {cell}","oppMissed":"Oponente errou {cell}","resultStats":"Tiros: {shots} · Acertos: {hits} · Precisão: {acc}%"};
 window.t = function(k, p){ var d = window.__I18N__ || {}; var s = String(k).split('.').reduce(function(o,i){return (o==null)?undefined:o[i];}, d); if (s == null) s = k; if (p) for (var n in p) s = s.split('{'+n+'}').join(p[n]); return s; };
 </script>
 <!-- i18n:runtime:end -->
