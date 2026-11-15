@@ -3,7 +3,7 @@
 // Emits public/<locale>/index.html, injects hreflang + a language switcher into
 // every page, and regenerates public/sitemap.xml with hreflang alternates.
 // Deterministic string replacement only — never rewrites markup/IDs/scripts.
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -16,6 +16,15 @@ const SWITCH_LABEL = { en: 'EN', es: 'ES', 'pt-br': 'PT', fr: 'FR', de: 'DE', vi
 const localeUrl = (l) => (l === 'en' ? `${ORIGIN}/` : `${ORIGIN}/${l}/`);
 
 let warnings = 0;
+// Write only when content differs; remember which locale pages changed so the
+// sitemap <lastmod> is bumped only for those (keeps rebuilds idempotent).
+const changed = new Set();
+const writeIfChanged = (file, content, loc) => {
+  const prev = existsSync(file) ? readFileSync(file, 'utf8') : null;
+  if (prev === content) return;
+  writeFileSync(file, content);
+  if (loc) changed.add(loc);
+};
 const litReplace = (s, from, to, ctx) => {
   if (!s.includes(from)) { console.warn(`  ⚠ anchor not found (${ctx}): ${JSON.stringify(from).slice(0, 60)}`); warnings++; return s; }
   return s.split(from).join(to);
@@ -108,7 +117,7 @@ const injectRuntime = (html, runtime) => {
 // ---- English page: inject hreflang + switcher only, keep everything else ----
 {
   let html = injectRuntime(injectHead(base, 'en'), en.runtime);
-  writeFileSync(join(ROOT, 'public/index.html'), html);
+  writeIfChanged(join(ROOT, 'public/index.html'), html, 'en');
   console.log('en  -> public/index.html');
 }
 
@@ -155,25 +164,32 @@ for (const loc of LOCALES.filter((l) => l !== 'en')) {
   // localized visible SEO section
   html = html.replace(/<section class="seo-content">[\s\S]*?<\/section>/, seoSection(t.seo));
 
-  // subdirectory: make relative asset paths absolute so /<loc>/ resolves them
-  html = html.replace(/href="style\.css"/g, 'href="/style.css"')
-             .replace(/src="name\.js"/g, 'src="/name.js"')
-             .replace(/src="game\.js"/g, 'src="/game.js"');
+  // subdirectory: make every relative local asset path root-absolute so
+  // /<loc>/ resolves them (sfx.js, account.js, style.css, images, ...).
+  html = html.replace(/\b(src|href)="(?![a-z][a-z0-9+.-]*:|\/|#|\.\.)([\w.\/-]+\.(?:js|mjs|css|svg|png|jpe?g|webp|gif|ico|json|webmanifest|mp3|ogg|wav))"/gi, '$1="/$2"');
 
   html = injectRuntime(injectHead(html, loc), t.runtime);
   mkdirSync(join(ROOT, `public/${loc}`), { recursive: true });
-  writeFileSync(join(ROOT, `public/${loc}/index.html`), html);
+  writeIfChanged(join(ROOT, `public/${loc}/index.html`), html, loc);
   console.log(`${loc.padEnd(3)} -> public/${loc}/index.html`);
 }
 
 // ---- sitemap with hreflang alternates ----
 const XHTML = 'xmlns:xhtml="http://www.w3.org/1999/xhtml"';
-const today = new Date().toISOString().slice(0, 10);
+// lastmod is deterministic: keep each URL's existing value and bump it to
+// today (local date) only when that locale's page content actually changed.
+const today = new Date().toLocaleDateString('en-CA');
+const SITEMAP = join(ROOT, 'public/sitemap.xml');
+const prevLastmod = {};
+if (existsSync(SITEMAP)) {
+  for (const m of readFileSync(SITEMAP, 'utf8').matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)) prevLastmod[m[1]] = m[2];
+}
+const lastmodFor = (l) => (changed.has(l) || !prevLastmod[localeUrl(l)] ? today : prevLastmod[localeUrl(l)]);
 const alts = LOCALES.map((l) => `    <xhtml:link rel="alternate" hreflang="${HREFLANG[l]}" href="${localeUrl(l)}"/>`).join('\n')
   + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}/"/>`;
 const urls = LOCALES.map((l) => `  <url>
     <loc>${localeUrl(l)}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmodFor(l)}</lastmod>
 ${alts}
   </url>`).join('\n');
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -181,6 +197,6 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${urls}
 </urlset>
 `;
-writeFileSync(join(ROOT, 'public/sitemap.xml'), sitemap);
+writeIfChanged(SITEMAP, sitemap);
 console.log('sitemap -> public/sitemap.xml');
 console.log(warnings ? `\nDone with ${warnings} anchor warning(s) — check above.` : '\nDone. All anchors matched.');
