@@ -108,7 +108,8 @@
     "youHit": "คุณยิงโดนที่ {cell}",
     "youMissed": "คุณยิงพลาดที่ {cell}",
     "oppHit": "คู่ต่อสู้ยิงโดนที่ {cell}",
-    "oppMissed": "คู่ต่อสู้ยิงพลาดที่ {cell}"
+    "oppMissed": "คู่ต่อสู้ยิงพลาดที่ {cell}",
+    "resultStats": "จำนวนนัด: {shots} · โดน: {hits} · ความแม่นยำ: {acc}%"
   },
   "_meta": {
     "site": "battleship",

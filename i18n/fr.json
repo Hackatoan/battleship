@@ -108,7 +108,8 @@
     "youHit": "Touché en {cell}",
     "youMissed": "Manqué en {cell}",
     "oppHit": "L'adversaire a touché {cell}",
-    "oppMissed": "L'adversaire a manqué {cell}"
+    "oppMissed": "L'adversaire a manqué {cell}",
+    "resultStats": "Tirs : {shots} · Touchés : {hits} · Précision : {acc} %"
   },
   "_meta": {
     "site": "battleship",

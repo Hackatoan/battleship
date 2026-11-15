@@ -198,6 +198,7 @@ h3 { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: upp
 .result-icon { flex: 0 0 auto; font-size: 34px; }
 #result-title { margin: 0 0 2px; font-size: 23px; font-weight: 900; letter-spacing: 3px; }
 #result-sub { color: var(--text-dim); font-size: 14px; }
+#result-stats { margin-top: 4px; color: var(--text-dim); font-size: 12px; font-variant-numeric: tabular-nums; }
 .result-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .result-actions .btn { width: auto; padding: 9px 14px; font-size: 12px; }
 

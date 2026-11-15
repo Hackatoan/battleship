@@ -108,7 +108,8 @@
     "youHit": "Bạn bắn trúng {cell}",
     "youMissed": "Bạn bắn trượt {cell}",
     "oppHit": "Đối thủ bắn trúng {cell}",
-    "oppMissed": "Đối thủ bắn trượt {cell}"
+    "oppMissed": "Đối thủ bắn trượt {cell}",
+    "resultStats": "Số phát bắn: {shots} · Trúng: {hits} · Độ chính xác: {acc}%"
   },
   "_meta": {
     "site": "battleship",

@@ -108,7 +108,8 @@
     "youHit": "Treffer auf {cell}",
     "youMissed": "Fehlschuss auf {cell}",
     "oppHit": "Gegner trifft {cell}",
-    "oppMissed": "Gegner verfehlt {cell}"
+    "oppMissed": "Gegner verfehlt {cell}",
+    "resultStats": "Schüsse: {shots} · Treffer: {hits} · Trefferquote: {acc} %"
   },
   "_meta": {
     "site": "battleship",

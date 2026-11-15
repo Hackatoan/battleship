@@ -93,6 +93,7 @@
     "youHit": "You hit {cell}",
     "youMissed": "You missed {cell}",
     "oppHit": "Opponent hit {cell}",
-    "oppMissed": "Opponent missed {cell}"
+    "oppMissed": "Opponent missed {cell}",
+    "resultStats": "Shots: {shots} · Hits: {hits} · Accuracy: {acc}%"
   }
 }

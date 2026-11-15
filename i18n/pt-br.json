@@ -108,7 +108,8 @@
     "youHit": "Você acertou {cell}",
     "youMissed": "Você errou {cell}",
     "oppHit": "Oponente acertou {cell}",
-    "oppMissed": "Oponente errou {cell}"
+    "oppMissed": "Oponente errou {cell}",
+    "resultStats": "Tiros: {shots} · Acertos: {hits} · Precisão: {acc}%"
   },
   "_meta": {
     "site": "battleship",
