@@ -148,6 +148,7 @@ h3 { font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: upp
 .cell.miss::after { content: '·'; color: #aaa; font-size: 24px; }
 .cell.sunk { background: #2a0000; }
 .cell.sunk::after { content: '✕'; color: #ff6060; font-size: 16px; font-weight: 900; }
+.cell.revealed, .cell.revealed.no-hover:hover { background: var(--ship); box-shadow: inset 0 0 0 2px var(--danger); opacity: 0.85; }
 .cell.no-hover { cursor: default; }
 .cell.no-hover:hover { background: inherit; }
 .cell.attackable:hover { background: rgba(255, 68, 68, 0.3); cursor: crosshair; }
