@@ -770,10 +770,22 @@ function showResult(won) {
     ? T('wonSub')
     : T('lostSub');
   document.getElementById('result-stats').textContent = shotStatsText();
+  if (state.mode === 'single' && !won) revealAIShips();
   document.getElementById('result-title').style.color = won ? 'var(--accent)' : 'var(--danger)';
   const panel = document.getElementById('result-panel');
   panel.hidden = false;
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// After losing to the AI, show where its surviving ships were hiding: any
+// AI ship cell I never hit gets a 'revealed' outline on the enemy board.
+// (Multiplayer boards live server-side, so this is single-player only.)
+function revealAIShips() {
+  if (!state.aiBoard) return;
+  for (let r = 0; r < 10; r++)
+    for (let c = 0; c < 10; c++)
+      if (state.aiBoard[r][c] > 0 && state.oppHits[r][c] === false)
+        getCell('opp-board', r, c)?.classList.add('revealed');
 }
 
 // Post-game accuracy line, derived from the cells I attacked this game.
