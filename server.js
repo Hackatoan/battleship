@@ -73,27 +73,13 @@ function isValidBoard(board) {
   return Object.keys(SHIP_SIZES).every(id => counts[id] === SHIP_SIZES[id]);
 }
 
-function checkSunk(board, shipId) {
-  for (let r = 0; r < 10; r++)
-    for (let c = 0; c < 10; c++)
-      if (board[r][c] === shipId) return false;
-  return true;
-}
-
-function checkWin(board) {
-  for (let r = 0; r < 10; r++)
-    for (let c = 0; c < 10; c++)
-      if (typeof board[r][c] === 'number' && board[r][c] > 0) return false;
-  return true;
-}
-
 io.on('connection', (socket) => {
   socket.on('create_room', async (payload = {}) => {
     if (Object.keys(rooms).length >= MAX_ROOMS) {
       return socket.emit('join_error', 'Server is full — try again shortly');
     }
     const code = makeCode();
-    rooms[code] = { players: [socket.id], names: {}, uids: {}, boards: {}, hits: {}, ready: new Set(), turn: null };
+    rooms[code] = { players: [socket.id], names: {}, uids: {}, boards: {}, hits: {}, ready: new Set(), turn: null, shipHealth: {}, boardCellCounts: {} };
     rooms[code].names[socket.id] = db.cleanName(payload && payload.name);
     socket.join(code);
     socket.emit('room_created', { code });
@@ -130,6 +116,15 @@ io.on('connection', (socket) => {
     if (!isValidBoard(board)) return;
     room.boards[socket.id] = board;
     room.hits[socket.id] = Array.from({ length: 10 }, () => Array(10).fill(false));
+
+    // Initialize ship health counters: map shipId -> remaining cells
+    room.shipHealth[socket.id] = {};
+    for (const [shipId, size] of Object.entries(SHIP_SIZES)) {
+      room.shipHealth[socket.id][shipId] = size;
+    }
+    // Total cells to clear to win (5+4+3+3+2 = 17)
+    room.boardCellCounts[socket.id] = Object.values(SHIP_SIZES).reduce((a, b) => a + b, 0);
+
     room.ready.add(socket.id);
     if (room.ready.size === 2) {
       room.turn = room.players[0];
@@ -155,10 +150,14 @@ io.on('connection', (socket) => {
 
     if (hit) {
       board[row][col] = 0;
-      if (checkSunk(board, cellVal)) sunkShip = cellVal;
+      // Decrement ship health counter; ship is sunk when it reaches 0
+      room.shipHealth[oppId][cellVal]--;
+      if (room.shipHealth[oppId][cellVal] === 0) sunkShip = cellVal;
+      // Decrement total board cell count
+      room.boardCellCounts[oppId]--;
     }
 
-    const won = hit && checkWin(board);
+    const won = hit && room.boardCellCounts[oppId] === 0;
     const nextTurn = won ? null : (hit ? socket.id : oppId);
     if (!won) room.turn = nextTurn;
 
